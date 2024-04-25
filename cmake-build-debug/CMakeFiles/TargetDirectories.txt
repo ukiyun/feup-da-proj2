@@ -1,0 +1,3 @@
+C:/Users/mmaru/Desktop/uni/UNI_2023-24/DA/feup-da-proj2/cmake-build-debug/CMakeFiles/feup_da_proj2.dir
+C:/Users/mmaru/Desktop/uni/UNI_2023-24/DA/feup-da-proj2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/mmaru/Desktop/uni/UNI_2023-24/DA/feup-da-proj2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
