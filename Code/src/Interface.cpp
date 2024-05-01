@@ -120,8 +120,11 @@ void Interface::backtracking_algorithm() {
         case 4:
             displayMainMenu();
             break;
+        default:
+            break;
     }
 }
+
 
 
 // ============ Triangular Approximation Functions ============== //

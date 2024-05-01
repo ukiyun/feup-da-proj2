@@ -9,4 +9,6 @@ add_executable(feup_da_proj2 main.cpp
         Code/src/ToyGraph.cpp
         Code/include/ToyGraph.h
         Code/src/FileHandler.cpp
-        Code/include/FileHandler.h)
+        Code/include/FileHandler.h
+        Code/src/Graph.cpp
+        Code/include/Graph.h)

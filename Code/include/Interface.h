@@ -1,6 +1,7 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
+// C++ libraries
 #include <cstdio>
 #include <iostream>
 #include <stdlib.h>
@@ -9,6 +10,8 @@
 #include <unistd.h>
 #include <dos.h>
 #include <windows.h>
+
+// Header Files
 #include "FileHandler.h"
 
 

@@ -1,6 +1,6 @@
 #include "../include/ToyGraph.h"
 
-ToyGraph::ToyGraph(int origin, int destination, int distance, string label_origin, string label_destination) {
+ToyGraph::ToyGraph(int origin, int destination, double distance, string label_origin, string label_destination) {
     this->origin_ = origin;
     this->destination_ = destination;
     this->distance_ = distance;
@@ -16,7 +16,7 @@ int ToyGraph::getDestination() const {
     return this->destination_;
 }
 
-int ToyGraph::getDistance() const {
+double ToyGraph::getDistance() const {
     return this->distance_;
 }
 

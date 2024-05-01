@@ -1,6 +1,7 @@
 #ifndef TOYGRAPH_H
 #define TOYGRAPH_H
 
+// C++ libraries
 #include <stdio.h>
 #include <iostream>
 #include <vector>
@@ -18,7 +19,7 @@ public:
     /// @param distance Integer with the Distance
     /// @param label_origin String with the Label of the Origin, can be empty or null
     /// @param label_destination String with the Label of the Destination, can be empty or null
-    ToyGraph(int origin, int destination, int distance, string label_origin=nullptr, string label_destination= nullptr);
+    ToyGraph(int origin, int destination, double distance, string label_origin=nullptr, string label_destination= nullptr);
 
     /// @brief A Default Empty Constructor for the Delivery Site
     ToyGraph()=default;
@@ -33,7 +34,7 @@ public:
 
     /// @brief A Function used to get the Distance
     /// @return Returns the Integer of the Distance
-    int getDistance() const;
+    double getDistance() const;
 
     /// @brief A Function used to get the Origin Label
     /// @return Returns the Integer of the Origin Label
@@ -51,7 +52,7 @@ private:
     int destination_;
 
     /// @brief Toy Graph Distance between Origin Node and Destination Node
-    int distance_;
+    double distance_;
 
     /// @brief Toy Graph Label of the Origin Node
     string label_origin_ = nullptr;             // Automatically Assume that There is no Origin Label
