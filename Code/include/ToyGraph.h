@@ -13,13 +13,13 @@ using namespace std;
 /// @brief A Class Dedicated to the Handling of ToyGraphs
 class ToyGraph {
 public:
-    /// @brief A Constructor for the Toy Graph
+    /// @brief A Constructor for the Toy Graph With Labels
     /// @param origin Integer with the Origin
     /// @param destination Integer with the Destination
     /// @param distance Integer with the Distance
-    /// @param label_origin String with the Label of the Origin, can be empty or null
-    /// @param label_destination String with the Label of the Destination, can be empty or null
-    ToyGraph(int origin, int destination, double distance, string label_origin=nullptr, string label_destination= nullptr);
+    /// @param label_origin String with the Label of the Origin
+    /// @param label_destination String with the Label of the Destination
+    ToyGraph(int origin, int destination, double distance, string label_origin = "", string label_destination="");
 
     /// @brief A Default Empty Constructor for the Delivery Site
     ToyGraph()=default;
@@ -55,10 +55,10 @@ private:
     double distance_;
 
     /// @brief Toy Graph Label of the Origin Node
-    string label_origin_ = nullptr;             // Automatically Assume that There is no Origin Label
+    string label_origin_ = "";             // Automatically Assume that There is no Origin Label
 
     /// @brief Toy Graph Label of the Destination Node
-    string label_destination_ = nullptr;        // Automatically Assume that There is no Destination Label
+    string label_destination_ = "";        // Automatically Assume that There is no Destination Label
 };
 
 

@@ -26,7 +26,7 @@ public:
     Edge(Node *origin, Node *destination, double distance);
 
     /// @brief A Default Empty Constructor for the Delivery Site
-    Edge();
+    Edge()=default;
 
     /// @brief A Function used to get the Edge Origin Node
     /// @return Returns the Node of the  Edge Origin
@@ -60,7 +60,7 @@ public:
     Node(int id, double node_longitude = 0, double node_latitude = 0);
 
     /// @brief A Default Empty Constructor for the Delivery Site
-    Node();
+    Node() = default;
 
     /// @brief A Function used to get the Id of the Node
     /// @return Returns the Integer of the Node ID
@@ -87,7 +87,7 @@ private:
 class Graph {
 public:
     /// @brief A Default Empty Constructor for the Graph
-    Graph();
+    Graph()=default;
 
     /// @brief A Function used to get the Nodes Vector
     /// @return Returns the Vector of the Nodes

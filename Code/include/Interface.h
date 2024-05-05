@@ -27,7 +27,17 @@ public:
     ///@brief Function used to Display the Program's Main Menu
     bool displayMainMenu();
 
+    /// @brief Function used to Choose which Type of Graph to Work With
     int choose_graph_type();
+
+    /// @brief Function used to Choose which Toy Graph CSV to Work With
+    void choose_toy_graph(int mode);
+
+    /// @brief Function used to Choose which Real World Graph CSV to Work With
+    void choose_real_world_graph(int mode);
+
+    /// @brief Function used to Choose which Fully Connected Graph CSV to Work With
+    void choose_fully_connected_graph(int mode);
 
     // ============ Backtracking Functions ============== //
     /// @brief Program Option to show a menu the Menu Related to Backtracking Functions
@@ -44,6 +54,14 @@ public:
     // ============ TSP in Real World Functions ============== //
     /// @brief Program Option to show a menu the Menu Related to Backtracking Functions
     void tsp_in_real_world();
+
+    // ============ Testing ============== //
+
+    void show_selected_toy_graph();
+
+    void show_selected_real_world_graph();
+
+    void show_selected_fully_connected_graph();
 
 private:
     /// @brief Variable used to Implement File Handler System and its Functions
