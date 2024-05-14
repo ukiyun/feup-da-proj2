@@ -130,7 +130,7 @@ public:
 
     /// @brief A Function used to find Nodes in the Graph
     /// @return Returns Node if Node was Successfully found, Nullptr Otherwise
-    Node* find_node(const Node * node);
+    Node* find_node(Node * node);
 
     /// @brief A Function used to get the Nodes Vector
     /// @return Returns the Vector of the Nodes

@@ -574,16 +574,14 @@ void Interface::show_selected_toy_graph() {
     cout << "| NodeID ( Longitude , Latitude ) | Number of Edges | Edges ( Origin , Dest. , Distance ) |\n";
 
     vector<Node *> all_nodes_Vector = this->fhs_.get_toy_graph().get_nodes_vector();
-    cout << all_nodes_Vector.size() << endl;
     for(int i = 0; i< all_nodes_Vector.size(); i++){
-       //  vector<Edge *> all_edges_of_Vector = all_nodes_Vector[i]->get_adjacent_edges_vector();
-        cout << "| " << all_nodes_Vector[i]->getNodeId() << " ( " << all_nodes_Vector[i]->getNodeLongitude() << " , " << all_nodes_Vector[i]->getNodeLatitude() << " ) | "; //<< all_edges_of_Vector.size() << " | ";
-        /*for(int j = 0; i<all_edges_of_Vector.size(); j++){
-            cout << "Edge " << i << " ( " << all_edges_of_Vector[i]->getEdgeOrigin()<< " , " << all_edges_of_Vector[i]->getEdgeDestination() << " , " << all_edges_of_Vector[i]->getEdgeDistance()<< " )";
-        }*/
+        vector<Edge *> all_edges_of_Vector = all_nodes_Vector[i]->get_adjacent_edges_vector();
+        cout <<setw(20) <<  "| " << all_nodes_Vector[i]->getNodeId() << " ( " << all_nodes_Vector[i]->getNodeLongitude() << " , " << all_nodes_Vector[i]->getNodeLatitude() << " ) | "; //<< all_edges_of_Vector.size() << " | ";
+        for(int j = 0; i<all_edges_of_Vector.size(); j++){
+            cout << "Edge " << j << " ( " << all_edges_of_Vector[i]->getEdgeOrigin()->getNodeId()<< " , " << all_edges_of_Vector[i]->getEdgeDestination()->getNodeId() << " , " << all_edges_of_Vector[i]->getEdgeDistance()<< " )";
+        }
         cout << "\n";
     }
-
     cout << "|                           |\n";
     cout << "|" << string(27, char(196)) << "|" << endl;
     cout << "|       1. Main Menu        |\n";

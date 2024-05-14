@@ -97,7 +97,7 @@ double Node::haversine_formula(const Node *destination_node) const {
 // ============ Graph Functions ============== //
 
 bool Graph::add_node(Node *new_node) {
-    if(this->find_node(new_node)!= nullptr){
+    if(find_node(new_node)!= nullptr){
         return false;
     }
     this->nodes_vector_.push_back(new_node);
@@ -116,7 +116,7 @@ bool Graph::add_edge(Edge *new_edge) {
     return true;
 }
 
-Node *Graph::find_node(const Node *node_to_find) {
+Node *Graph::find_node(Node *node_to_find) {
     for (auto node: this->nodes_vector_){
         if(node->getNodeId() == node_to_find->getNodeId()){
             return node;

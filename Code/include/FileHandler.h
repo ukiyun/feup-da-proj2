@@ -45,6 +45,10 @@ public:
     void read_FullyConnected_csv(string filePath);
     void parse_FullyConnected_csv(string currentLine);
 
+    // ============ Adding Nodes to Graph ========================= //
+
+    void add_nodes_to_graph(Graph * graph);
+
 private:
     /// @brief Vector with the Toy Graph Nodes
     vector<ToyGraph> toy_graph_nodes_;
