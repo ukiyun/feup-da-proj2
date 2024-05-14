@@ -11,4 +11,6 @@ add_executable(feup_da_proj2 main.cpp
         Code/src/FileHandler.cpp
         Code/include/FileHandler.h
         Code/src/Graph.cpp
-        Code/include/Graph.h)
+        Code/include/Graph.h
+        Code/src/Utils.cpp
+        Code/include/Utils.h)

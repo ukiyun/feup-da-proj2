@@ -138,15 +138,15 @@ void Interface::choose_toy_graph(int mode) {
         switch (stoi(choice)) {
             case 1:
                 fhs_.read_ToyGraph_csv("shipping.csv");
-                show_selected_toy_graph();
+                show_selected_toy_csv();
                 break;
             case 2:
                 fhs_.read_ToyGraph_csv("stadiums.csv");
-                show_selected_toy_graph();
+                show_selected_toy_csv();
                 break;
             case 3:
                 fhs_.read_ToyGraph_csv("tourism.csv");
-                show_selected_toy_graph();
+                show_selected_toy_csv();
                 break;
             case 4:
                 switch(mode){
@@ -169,6 +169,7 @@ void Interface::choose_toy_graph(int mode) {
                     }
             default:
                 cout<<"Invalid choice. Please try again."<<endl;
+                choose_toy_graph(mode);
         }
 
     }
@@ -198,13 +199,16 @@ void Interface::choose_real_world_graph(int mode) {
     try{
         switch (stoi(choice)) {
             case 1:
-                fhs_.read_RealWorld_csv("../datasets/Real-world Graphs/graph1/nodes.csv", "../datasets/Real-world Graphs/graph1/edges.csv");
+                fhs_.read_RealWorld_csv("../Code/datasets/Real-world-Graphs/graph1/nodes.csv", "../Code/datasets/Real-world-Graphs/graph1/edges.csv");
+                show_selected_real_world_csv();
                 break;
             case 2:
-                fhs_.read_RealWorld_csv("../datasets/Real-world Graphs/graph2/nodes.csv", "../datasets/Real-world Graphs/graph2/edges.csv");
+                fhs_.read_RealWorld_csv("../Code/datasets/Real-world-Graphs/graph2/nodes.csv", "../Code/datasets/Real-world-Graphs/graph2/edges.csv");
+                show_selected_real_world_csv();
                 break;
             case 3:
-                fhs_.read_RealWorld_csv("../datasets/Real-world Graphs/graph3/nodes.csv", "../datasets/Real-world Graphs/graph3/edges.csv");
+                fhs_.read_RealWorld_csv("../Code/datasets/Real-world-Graphs/graph3/nodes.csv", "../Code/datasets/Real-world-Graphs/graph3/edges.csv");
+                show_selected_real_world_csv();
                 break;
             case 4:
                 switch(mode){
@@ -266,51 +270,51 @@ void Interface::choose_fully_connected_graph(int mode) {
         switch (stoi(choice)) {
             case 1:
                 fhs_.read_FullyConnected_csv("edges_25.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 2:
                 fhs_.read_FullyConnected_csv("edges_50.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 3:
                 fhs_.read_FullyConnected_csv("edges_75.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 4:
                 fhs_.read_FullyConnected_csv("edges_100.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 5:
                 fhs_.read_FullyConnected_csv("edges_200.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 6:
                 fhs_.read_FullyConnected_csv("edges_300.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 7:
                 fhs_.read_FullyConnected_csv("edges_400.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 8:
                 fhs_.read_FullyConnected_csv("edges_500.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 9:
                 fhs_.read_FullyConnected_csv("edges_600.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 10:
                 fhs_.read_FullyConnected_csv("edges_700.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 11:
                 fhs_.read_FullyConnected_csv("edges_800.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 12:
                 fhs_.read_FullyConnected_csv("edges_900.csv");
-                show_selected_fully_connected_graph();
+                show_selected_fully_connected_csv();
                 break;
             case 13:
                 switch (mode) {
@@ -435,8 +439,8 @@ void Interface::tsp_in_real_world() {
 
 // ============ Testing ============== //
 
-void Interface::show_selected_toy_graph(){
-    cout << char(218)<< string(23, char(196)) << " Toy Graph " << string(22, char(196)) << char(191) << endl;
+void Interface::show_selected_toy_csv(){
+    cout << char(218)<< string(24, char(196)) << " Toy CSV " << string(23, char(196)) << char(191) << endl;
     cout << "|" << string(56, char(196)) << "|" << endl;
     cout << "| Origin | Dest. | Distance | Origin Label | Dest. Label |\n";
     cout << "|                                                        |\n";
@@ -453,6 +457,7 @@ void Interface::show_selected_toy_graph(){
     cout << "|                                                        |\n";
     cout << "|" << string(56, char(196)) << "|" << endl;
     cout << "|                      1. Main Menu                      |\n";
+    cout << "|                 2. Graph Visualization                 |\n";
     cout << char(192) << string(56, char(196)) << char(217) << endl;
     cout << "Enter your choice" << endl;
 
@@ -466,6 +471,9 @@ void Interface::show_selected_toy_graph(){
                 displayMainMenu();
                 break;
 
+            case 2:
+                show_selected_toy_graph();
+                break;
             default:
                 cout<<"Invalid choice. Please try again."<<endl;
 
@@ -476,13 +484,50 @@ void Interface::show_selected_toy_graph(){
     }
 }
 
+void Interface::show_selected_real_world_csv(){
+    cout << char(218)<< string(6, char(196)) << " Real World CSV " << string(5, char(196)) << char(191) << endl;
+    cout << "|" << string(27, char(196)) << "|" << endl;
+    cout << "| Id | Longitude | Latitude |\n";
+    cout << "|                           |\n";
 
-void Interface::show_selected_real_world_graph(){
+    vector<Node> realWorldGraph = this->fhs_.get_real_world_graph_vector();
 
+    for (auto real: realWorldGraph) {
+        cout << "|  " << setw(4) << real.getNodeId() << "  |  ";
+        cout << setw(3) << real.getNodeLongitude()   << "  |  ";
+        cout << setw(5) << real.getNodeLatitude()    << "  |  " << endl;
+    }
+    cout << "|                           |\n";
+    cout << "|" << string(27, char(196)) << "|" << endl;
+    cout << "|       1. Main Menu        |\n";
+    cout << "|   2. Graph Visualization  |\n";
+    cout << char(192) << string(27, char(196)) << char(217) << endl;
+    cout << "Enter your choice" << endl;
+
+    string choice;
+    cin >> choice;
+    cout << "\n";
+
+    try{
+        switch (stoi(choice)) {
+            case 1:
+                displayMainMenu();
+                break;
+            case 2:
+                show_selected_real_world_graph();
+                break;
+            default:
+                cout<<"Invalid choice. Please try again."<<endl;
+
+        }
+    }
+    catch (invalid_argument) {
+        cout<<"Invalid choice. Please try again."<<endl;
+    }
 }
 
-void Interface::show_selected_fully_connected_graph(){
-    cout << char(218)<< string(7, char(196)) << " Fully Graph " << string(7, char(196)) << char(191) << endl;
+void Interface::show_selected_fully_connected_csv(){
+    cout << char(218)<< string(3, char(196)) << " Fully Connected CSV " << string(3, char(196)) << char(191) << endl;
     cout << "|" << string(27, char(196)) << "|" << endl;
     cout << "| Origin | Dest. | Distance |\n";
     cout << "|                           |\n";
@@ -494,6 +539,51 @@ void Interface::show_selected_fully_connected_graph(){
         cout << setw(3) << extra.getDestination() << "  |  ";
         cout << setw(5) << extra.getDistance()<< "  |  " << endl;
     }
+    cout << "|                           |\n";
+    cout << "|" << string(27, char(196)) << "|" << endl;
+    cout << "|       1. Main Menu        |\n";
+    cout << "|   2. Graph Visualization  |\n";
+    cout << char(192) << string(27, char(196)) << char(217) << endl;
+    cout << "Enter your choice" << endl;
+
+    string choice;
+    cin >> choice;
+    cout << "\n";
+
+    try{
+        switch (stoi(choice)) {
+            case 1:
+                displayMainMenu();
+                break;
+            case 2:
+                show_selected_fully_connected_graph();
+                break;
+            default:
+                cout<<"Invalid choice. Please try again."<<endl;
+
+        }
+    }
+    catch (invalid_argument) {
+        cout<<"Invalid choice. Please try again."<<endl;
+    }
+}
+
+void Interface::show_selected_toy_graph() {
+    cout << char(218)<< string(39, char(196)) << " Toy Graph " << string(39, char(196)) << char(191) << endl;
+    cout << "|" << string(89, char(196)) << "|" << endl;
+    cout << "| NodeID ( Longitude , Latitude ) | Number of Edges | Edges ( Origin , Dest. , Distance ) |\n";
+
+    vector<Node *> all_nodes_Vector = this->fhs_.get_toy_graph().get_nodes_vector();
+    cout << all_nodes_Vector.size() << endl;
+    for(int i = 0; i< all_nodes_Vector.size(); i++){
+       //  vector<Edge *> all_edges_of_Vector = all_nodes_Vector[i]->get_adjacent_edges_vector();
+        cout << "| " << all_nodes_Vector[i]->getNodeId() << " ( " << all_nodes_Vector[i]->getNodeLongitude() << " , " << all_nodes_Vector[i]->getNodeLatitude() << " ) | "; //<< all_edges_of_Vector.size() << " | ";
+        /*for(int j = 0; i<all_edges_of_Vector.size(); j++){
+            cout << "Edge " << i << " ( " << all_edges_of_Vector[i]->getEdgeOrigin()<< " , " << all_edges_of_Vector[i]->getEdgeDestination() << " , " << all_edges_of_Vector[i]->getEdgeDistance()<< " )";
+        }*/
+        cout << "\n";
+    }
+
     cout << "|                           |\n";
     cout << "|" << string(27, char(196)) << "|" << endl;
     cout << "|       1. Main Menu        |\n";
@@ -509,7 +599,6 @@ void Interface::show_selected_fully_connected_graph(){
             case 1:
                 displayMainMenu();
                 break;
-
             default:
                 cout<<"Invalid choice. Please try again."<<endl;
 
@@ -518,4 +607,12 @@ void Interface::show_selected_fully_connected_graph(){
     catch (invalid_argument) {
         cout<<"Invalid choice. Please try again."<<endl;
     }
+}
+
+void Interface::show_selected_real_world_graph() {
+
+}
+
+void Interface::show_selected_fully_connected_graph() {
+
 }

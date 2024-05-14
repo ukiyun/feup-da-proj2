@@ -57,6 +57,12 @@ public:
 
     // ============ Testing ============== //
 
+    void show_selected_toy_csv();
+
+    void show_selected_real_world_csv();
+
+    void show_selected_fully_connected_csv();
+
     void show_selected_toy_graph();
 
     void show_selected_real_world_graph();
