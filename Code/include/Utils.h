@@ -11,6 +11,8 @@
 // Header Files
 #include "Graph.h"
 
+using namespace std;
+
 /// @class Utils
 /// @brief A Class Dedicated to the Implementation of Auxiliary Functions
 class Utils {
@@ -20,7 +22,7 @@ class Utils {
     float tsp(const Graph& graph);
 
     // Not sure about Function
-    vector<int> triangular_approximation(const Graph& graph);
+   double triangularApproximationTSP(const vector<Node *> nodes_vector_);
 };
 
 
