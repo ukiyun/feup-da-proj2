@@ -454,7 +454,7 @@ void Interface::show_selected_toy_csv(){
         cout << setw(10) << toy.getOriginLabel()<< "  |  ";
         cout << setw(9) << toy.getDestinationLabel() << "  |  " << endl;
     }
-    cout << "|                                                        |\n";
+
     cout << "|" << string(56, char(196)) << "|" << endl;
     cout << "|                      1. Main Menu                      |\n";
     cout << "|                 2. Graph Visualization                 |\n";
@@ -569,23 +569,41 @@ void Interface::show_selected_fully_connected_csv(){
 }
 
 void Interface::show_selected_toy_graph() {
-    cout << char(218)<< string(39, char(196)) << " Toy Graph " << string(39, char(196)) << char(191) << endl;
-    cout << "|" << string(89, char(196)) << "|" << endl;
-    cout << "| NodeID ( Longitude , Latitude ) | Number of Edges | Edges ( Origin , Dest. , Distance ) |\n";
+    cout << char(218)<< string(22, char(196)) << " Toy Graph " << string(22, char(196)) << char(191) << endl;
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    cout << "|            NodeID ( Longitude , Latitude )            |\n";
+    cout << "|" << string(55, char(196)) << "|" << endl;
 
     vector<Node *> all_nodes_Vector = this->fhs_.get_toy_graph().get_nodes_vector();
     for(int i = 0; i< all_nodes_Vector.size(); i++){
-        vector<Edge *> all_edges_of_Vector = all_nodes_Vector[i]->get_adjacent_edges_vector();
-        cout <<setw(20) <<  "| " << all_nodes_Vector[i]->getNodeId() << " ( " << all_nodes_Vector[i]->getNodeLongitude() << " , " << all_nodes_Vector[i]->getNodeLatitude() << " ) | "; //<< all_edges_of_Vector.size() << " | ";
-        for(int j = 0; i<all_edges_of_Vector.size(); j++){
-            cout << "Edge " << j << " ( " << all_edges_of_Vector[i]->getEdgeOrigin()->getNodeId()<< " , " << all_edges_of_Vector[i]->getEdgeDestination()->getNodeId() << " , " << all_edges_of_Vector[i]->getEdgeDistance()<< " )";
-        }
+        cout <<  "| "<< setw(20)<< "Node " << setw(5)<< all_nodes_Vector[i]->getNodeId() << " ( " << all_nodes_Vector[i]->getNodeLongitude() << " , " << all_nodes_Vector[i]->getNodeLatitude() << " )" << setw(21) <<" | ";
         cout << "\n";
     }
-    cout << "|                           |\n";
-    cout << "|" << string(27, char(196)) << "|" << endl;
-    cout << "|       1. Main Menu        |\n";
-    cout << char(192) << string(27, char(196)) << char(217) << endl;
+
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    cout << "| Number of Edges | Edges ( Origin , Dest. , Distance ) |\n";
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    for(int j=0; j< all_nodes_Vector.size();j++){
+        vector<Edge *> edgeSet = all_nodes_Vector[j]->get_adjacent_edges_vector();
+
+        cout <<  "| "<< setw(20)<< "Node " << setw(5)<< all_nodes_Vector[j]->getNodeId() << " ( " << all_nodes_Vector[j]->getNodeLongitude() << " , " << all_nodes_Vector[j]->getNodeLatitude() << " )" << setw(21) <<" | " << endl;
+        cout << "|" << string(55, char(196)) << "|" << endl;
+
+        if(edgeSet.size()== 0){
+            cout << "|              Node has no Outgoing Edges               |\n";
+            cout << "|" << string(55, char(196)) << "|" << endl;
+        }
+        for(int k = 0; k< edgeSet.size();k++){
+            cout <<  "| "<< setw(19)<< "Edge " << k << setw(5)<< " ( " << edgeSet[k]->getEdgeOrigin()->getNodeId() << " , " << edgeSet[k]->getEdgeDestination()->getNodeId() << " , " << edgeSet[k]->getEdgeDistance() << " )" << setw(16) <<" | ";
+            cout << "\n";
+        }
+
+        cout << "|" << string(55, char(196)) << "|" << endl;
+
+    }
+    cout << "|                                                       |\n";
+    cout << "|                      1. Main Menu                     |\n";
+    cout << char(192) << string(55, char(196)) << char(217) << endl;
     cout << "Enter your choice" << endl;
 
     string choice;
@@ -608,9 +626,115 @@ void Interface::show_selected_toy_graph() {
 }
 
 void Interface::show_selected_real_world_graph() {
+    cout << char(218)<< string(18, char(196)) << " Real World Graph " << string(19, char(196)) << char(191) << endl;
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    cout << "|            NodeID ( Longitude , Latitude )            |\n";
+    cout << "|" << string(55, char(196)) << "|" << endl;
 
+    vector<Node *> all_nodes_Vector = this->fhs_.get_real_world_graph().get_nodes_vector();
+    for(int i = 0; i< all_nodes_Vector.size(); i++){
+        cout <<  "| "<< setw(20)<< "Node " << setw(5)<< all_nodes_Vector[i]->getNodeId() << " ( " << all_nodes_Vector[i]->getNodeLongitude() << " , " << all_nodes_Vector[i]->getNodeLatitude() << " )" << setw(21) <<" | ";
+        cout << "\n";
+    }
+
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    cout << "| Number of Edges | Edges ( Origin , Dest. , Distance ) |\n";
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    for(int j=0; j< all_nodes_Vector.size();j++){
+        vector<Edge *> edgeSet = all_nodes_Vector[j]->get_adjacent_edges_vector();
+
+        cout <<  "| "<< setw(20)<< "Node " << setw(5)<< all_nodes_Vector[j]->getNodeId() << " ( " << all_nodes_Vector[j]->getNodeLongitude() << " , " << all_nodes_Vector[j]->getNodeLatitude() << " )" << setw(21) <<" | " << endl;
+        cout << "|" << string(55, char(196)) << "|" << endl;
+
+        if(edgeSet.size()== 0){
+            cout << "|              Node has no Outgoing Edges               |\n";
+            cout << "|" << string(55, char(196)) << "|" << endl;
+        }
+        for(int k = 0; k< edgeSet.size();k++){
+            cout <<  "| "<< setw(19)<< "Edge " << k << setw(5)<< " ( " << edgeSet[k]->getEdgeOrigin()->getNodeId() << " , " << edgeSet[k]->getEdgeDestination()->getNodeId() << " , " << edgeSet[k]->getEdgeDistance() << " )" << setw(16) <<" | ";
+            cout << "\n";
+        }
+
+        cout << "|" << string(55, char(196)) << "|" << endl;
+
+    }
+    cout << "|                                                       |\n";
+    cout << "|                      1. Main Menu                     |\n";
+    cout << char(192) << string(55, char(196)) << char(217) << endl;
+    cout << "Enter your choice" << endl;
+
+    string choice;
+    cin >> choice;
+    cout << "\n";
+
+    try{
+        switch (stoi(choice)) {
+            case 1:
+                displayMainMenu();
+                break;
+            default:
+                cout<<"Invalid choice. Please try again."<<endl;
+
+        }
+    }
+    catch (invalid_argument) {
+        cout<<"Invalid choice. Please try again."<<endl;
+    }
 }
 
 void Interface::show_selected_fully_connected_graph() {
+    cout << char(218)<< string(16, char(196)) << " Fully Connected Graph " << string(16, char(196)) << char(191) << endl;
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    cout << "|            NodeID ( Longitude , Latitude )            |\n";
+    cout << "|" << string(55, char(196)) << "|" << endl;
 
+    vector<Node *> all_nodes_Vector = this->fhs_.get_fully_connected_graph().get_nodes_vector();
+    for(int i = 0; i< all_nodes_Vector.size(); i++){
+        cout <<  "| "<< setw(20)<< "Node " << setw(5)<< all_nodes_Vector[i]->getNodeId() << " ( " << all_nodes_Vector[i]->getNodeLongitude() << " , " << all_nodes_Vector[i]->getNodeLatitude() << " )" << setw(21) <<" | ";
+        cout << "\n";
+    }
+
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    cout << "| Number of Edges | Edges ( Origin , Dest. , Distance ) |\n";
+    cout << "|" << string(55, char(196)) << "|" << endl;
+    for(int j=0; j< all_nodes_Vector.size();j++){
+        vector<Edge *> edgeSet = all_nodes_Vector[j]->get_adjacent_edges_vector();
+
+        cout <<  "| "<< setw(20)<< "Node " << setw(5)<< all_nodes_Vector[j]->getNodeId() << " ( " << all_nodes_Vector[j]->getNodeLongitude() << " , " << all_nodes_Vector[j]->getNodeLatitude() << " )" << setw(21) <<" | " << endl;
+        cout << "|" << string(55, char(196)) << "|" << endl;
+
+        if(edgeSet.size()== 0){
+            cout << "|              Node has no Outgoing Edges               |\n";
+            cout << "|" << string(55, char(196)) << "|" << endl;
+        }
+        for(int k = 0; k< edgeSet.size();k++){
+            cout <<  "| "<< setw(19)<< "Edge " << k << setw(5)<< " ( " << edgeSet[k]->getEdgeOrigin()->getNodeId() << " , " << edgeSet[k]->getEdgeDestination()->getNodeId() << " , " << edgeSet[k]->getEdgeDistance() << " )" << setw(16) <<" | ";
+            cout << "\n";
+        }
+
+        cout << "|" << string(55, char(196)) << "|" << endl;
+
+    }
+    cout << "|                                                       |\n";
+    cout << "|                      1. Main Menu                     |\n";
+    cout << char(192) << string(55, char(196)) << char(217) << endl;
+    cout << "Enter your choice" << endl;
+
+    string choice;
+    cin >> choice;
+    cout << "\n";
+
+    try{
+        switch (stoi(choice)) {
+            case 1:
+                displayMainMenu();
+                break;
+            default:
+                cout<<"Invalid choice. Please try again."<<endl;
+
+        }
+    }
+    catch (invalid_argument) {
+        cout<<"Invalid choice. Please try again."<<endl;
+    }
 }

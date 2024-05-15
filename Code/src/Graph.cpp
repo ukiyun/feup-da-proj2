@@ -42,6 +42,11 @@ double Node::getNodeLatitude() const{
 }
 
 Edge *Node::add_edge_to_node(Edge *new_edge) {
+    for (auto e: adjacent_edges_){
+        if(e == new_edge){
+            return nullptr;
+        }
+    }
     this->adjacent_edges_.push_back(new_edge);
     return new_edge;
 }
@@ -113,6 +118,7 @@ bool Graph::add_edge(Edge *new_edge) {
         return false;
     }
 
+    origin_node->add_edge_to_node(new_edge);
     return true;
 }
 

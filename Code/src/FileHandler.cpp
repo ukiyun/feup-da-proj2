@@ -51,7 +51,9 @@ void FileHandler::parse_ToyGraph_csv(string currentLine){
 
     Edge * new_edge = new Edge(origin_node, destination_node, ToyGraphInput.getDistance());
 
-    this->toy_graph_.find_node(origin_node)->add_edge_to_node(new_edge);
+    if(this->toy_graph_.find_node(origin_node)->find_edge(origin_node) == nullptr){
+        this->toy_graph_.add_edge(new_edge);
+    }
 
 }
 
@@ -142,6 +144,10 @@ void FileHandler::parse_RealWorld_Edges_csv(string currentLine) {
     Edge * RealWorldInput = new Edge(Origin_Node, Destination_Node, stod(parsed[2]));
 
     real_world_graph_.find_node(Origin_Node)->add_edge_to_node(RealWorldInput);
+
+    if(this->real_world_graph_.find_node(Origin_Node)->find_edge(Origin_Node) == nullptr){
+        this->real_world_graph_.add_edge(RealWorldInput);
+    }
 }
 
 void FileHandler::read_RealWorld_csv(string NodeFilePath, string EdgeFilePath){
@@ -236,7 +242,7 @@ void FileHandler::parse_FullyConnected_csv(string currentLine){
     Node * origin_node = new Node(FullyConnectedInput.getOrigin());
     Node * destination_node = new Node(FullyConnectedInput.getDestination());
 
-    // Adding The Nodes from the Toy CSV to the Toy Graph. In Toy Graph Input, the first Argument is one Node, and the Second is Another Node
+
     this->fully_connected_graph_.add_node(origin_node);
     this->fully_connected_graph_.add_node(destination_node);
 
@@ -245,7 +251,9 @@ void FileHandler::parse_FullyConnected_csv(string currentLine){
 
     Edge * new_edge = new Edge(origin_node, destination_node, FullyConnectedInput.getDistance());
 
-    fully_connected_graph_.find_node(origin_node)->add_edge_to_node(new_edge);
+    if(this->fully_connected_graph_.find_node(origin_node)->find_edge(origin_node) == nullptr){
+        this->fully_connected_graph_.add_edge(new_edge);
+    }
 }
 
 void FileHandler::read_FullyConnected_csv(string fileName){
