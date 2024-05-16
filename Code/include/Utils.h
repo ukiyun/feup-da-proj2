@@ -15,10 +15,10 @@
 /// @brief A Class Dedicated to the Implementation of Auxiliary Functions
 class Utils {
 
-    static float backtracking(const Graph &graph);
+    static float backtracking(Graph &graph);
     float tsp(const Graph& graph);
     static std::vector<int> triangular_approximation(const Graph& graph);
-    static void backtrackingHelper(const Graph &graph, std::vector <bool> &visited,int currentVertex, int count, float pathLength, float &minPathLength );
+    static void backtrackingHelper(Graph &graph, std::vector <bool> &visited,int currentVertex, int count, float pathLength, float &minPathLength );
 
 };
 
