@@ -14,13 +14,12 @@
 /// @class Utils
 /// @brief A Class Dedicated to the Implementation of Auxiliary Functions
 class Utils {
-    // Not sure about Parameters
-    float backtracking();
 
+    static float backtracking(const Graph &graph);
     float tsp(const Graph& graph);
+    static std::vector<int> triangular_approximation(const Graph& graph);
+    static void backtrackingHelper(const Graph &graph, std::vector <bool> &visited,int currentVertex, int count, float pathLength, float &minPathLength );
 
-    // Not sure about Function
-    vector<int> triangular_approximation(const Graph& graph);
 };
 
 

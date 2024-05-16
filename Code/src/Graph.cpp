@@ -61,7 +61,7 @@ Edge *Node::find_edge(const Node *node_destination) {
     return nullptr;
 }
 
-vector<Edge *> Node::get_adjacent_edges_vector() const {
+std::vector<Edge *> Node::get_adjacent_edges_vector() const {
     return this->adjacent_edges_;
 }
 
@@ -131,8 +131,23 @@ Node *Graph::find_node(Node *node_to_find) {
     return nullptr;
 }
 
+// Implement the find_edge function
+Edge* Graph::find_edge(int originNodeId, int destinationNodeId) const {
+    for (auto node : nodes_vector_) {
+        if (node->getNodeId() == originNodeId) {
+            // Find the edge from this node to the destination node
+            for (auto edge : node->get_adjacent_edges_vector()) {
+                if (edge->getEdgeDestination()->getNodeId() == destinationNodeId) {
+                    return edge;
+                }
+            }
+        }
+    }
+    return nullptr; // Edge not found
+}
 
-vector<Node *> Graph::get_nodes_vector() {
+
+std::vector<Node *> Graph::get_nodes_vector() {
     return this->nodes_vector_;
 }
 
