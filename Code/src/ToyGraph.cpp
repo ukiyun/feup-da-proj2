@@ -1,4 +1,6 @@
+#include <mmcobj.h>
 #include "../include/ToyGraph.h"
+#include "../include/Graph.h"
 
 ToyGraph::ToyGraph(int origin, int destination, double distance, string label_origin, string label_destination) {
     this->origin_ = origin;
@@ -26,4 +28,8 @@ string ToyGraph::getOriginLabel() const {
 
 string ToyGraph::getDestinationLabel() const {
     return this->label_destination_;
+}
+
+vector<Node *> Graph::get_nodes_vector() const {
+    return this->nodes_vector_;
 }
