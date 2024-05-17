@@ -7,6 +7,7 @@
 #include <iostream>
 #include <cmath>
 
+using namespace std;
 // Header Files
 
 /// @class Node
@@ -134,17 +135,16 @@ public:
 
     /// @brief A Function used to get the Nodes Vector
     /// @return Returns the Vector of the Nodes
-    std::vector<Node *> get_nodes_vector();
+    vector<Node *> get_nodes_vector();
 
     /// @brief A Function used to Delete the Current Graph
     void delete_graph();
-    std::vector<Node *> get_nodes_vector() const;
 
     Edge* find_edge(int originNodeId, int destinationNodeId) const;
 
 private:
     /// @brief Vector with the All the Nodes in a Graph
-    std::vector<Node *> nodes_vector_;
+    vector<Node *> nodes_vector_;
 };
 
 
