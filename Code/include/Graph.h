@@ -93,7 +93,7 @@ public:
 
     /// @brief A Function used to Calculate the Distance between Two Points
     /// @return Returns the double Value of the Distance between Nodes
-    double haversine_formula(const Node* destination_node) const;
+    static double haversine_formula(const Node* destination_node) const;
 
 private:
     /// @brief Integer with the Id of the Node
@@ -138,6 +138,12 @@ public:
 
     /// @brief A Function used to Delete the Current Graph
     void delete_graph();
+
+    /// @brief A Function used to Find an Edge in the Current Graph
+    Edge *find_edge(int i, int i1);
+
+    /// @brief A Function used to Find triangular Approximation
+    double triangularApproximationTSP(const vector<Node *> nodes);
 
 private:
     /// @brief Vector with the All the Nodes in a Graph

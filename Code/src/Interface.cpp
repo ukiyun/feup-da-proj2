@@ -329,7 +329,7 @@ void Interface::choose_fully_connected_graph(int mode) {
     }
 }
 
-void Interface::show_selection_menu(int mode) {
+vector<int> Interface::show_selection_menu(int mode) {
     usleep(650000);     // sleep in microseconds
     cout << char(218)<< string(6, char(196)) << " Select Wanted Operation " << string(5, char(196)) << char(191) << endl;
     cout << "|                                    |\n";
@@ -379,31 +379,9 @@ void Interface::show_selection_menu(int mode) {
                 }
                 break;
             case 3:
-                switch(mode){
-                    case 1:
-                        // Missing Functions
-                        break;
-                    case 2:
-                        // Missing Functions
-                        break;
-                    case 3:
-                        // Missing Functions
-                        break;
-                }
-                break;
+                return {3,mode};
             case 4:
-                switch(mode){
-                    case 1:
-                        // missing stats
-                        break;
-                    case 2:
-                        // missing stats
-                        break;
-                    case 3:
-                        // missing stats
-                        break;
-                }
-                break;
+                return {4, mode};
             case 5:
                     switch(mode){
                         case 1:
@@ -487,6 +465,7 @@ void Interface::triangular_approximation() {
         case 1:
             this->choose_toy_graph(mode);
             this->show_selection_menu(mode);
+
             //missing functions;
             break;
         case 2:
