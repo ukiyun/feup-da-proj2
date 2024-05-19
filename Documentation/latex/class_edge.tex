@@ -1,0 +1,106 @@
+\doxysection{Edge Class Reference}
+\hypertarget{class_edge}{}\label{class_edge}\index{Edge@{Edge}}
+
+
+A Class Dedicated to the Handling of Edges, that will Belong to a \doxylink{class_graph}{Graph}.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge_a4a367788f327db45cc312dab949e1bd4}{Edge}} (\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}origin, \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}destination, double distance)
+\begin{DoxyCompactList}\small\item\em A Constructor for the Toy \doxylink{class_graph}{Graph}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge_a1bfe925e1fdb844de6e28a13d9166228}{Edge}} ()=default
+\begin{DoxyCompactList}\small\item\em A Default Empty Constructor for the Delivery Site. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_edge_ad699c580a0b315055a02758a4fa5fa77}{get\+Edge\+Origin}} () const
+\begin{DoxyCompactList}\small\item\em A Function used to get the \doxylink{class_edge}{Edge} Origin \doxylink{class_node}{Node}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_edge_aff79570da26c7666a9c10bc8dc9d1b23}{get\+Edge\+Destination}} () const
+\begin{DoxyCompactList}\small\item\em A Function used to get the \doxylink{class_edge}{Edge} Destination \doxylink{class_node}{Node}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_edge_ab288afb3e75bd81b8fb698bd1a3147d9}{get\+Edge\+Distance}} () const
+\begin{DoxyCompactList}\small\item\em A Function used to get the \doxylink{class_edge}{Edge} Distance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Class Dedicated to the Handling of Edges, that will Belong to a \doxylink{class_graph}{Graph}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_edge_a4a367788f327db45cc312dab949e1bd4}\label{class_edge_a4a367788f327db45cc312dab949e1bd4} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}}]{origin,  }\item[{\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}}]{destination,  }\item[{double}]{distance }\end{DoxyParamCaption})}
+
+
+
+A Constructor for the Toy \doxylink{class_graph}{Graph}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & \doxylink{class_edge}{Edge}\textquotesingle{}s Origin \doxylink{class_node}{Node} \\
+\hline
+{\em destination} & \doxylink{class_edge}{Edge}\textquotesingle{}s Destination \doxylink{class_node}{Node} \\
+\hline
+{\em distance} & Double with the \doxylink{class_edge}{Edge} Distance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_edge_a1bfe925e1fdb844de6e28a13d9166228}\label{class_edge_a1bfe925e1fdb844de6e28a13d9166228} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+A Default Empty Constructor for the Delivery Site. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_edge_aff79570da26c7666a9c10bc8dc9d1b23}\label{class_edge_aff79570da26c7666a9c10bc8dc9d1b23} 
+\index{Edge@{Edge}!getEdgeDestination@{getEdgeDestination}}
+\index{getEdgeDestination@{getEdgeDestination}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getEdgeDestination()}{getEdgeDestination()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} Edge\+::get\+Edge\+Destination (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A Function used to get the \doxylink{class_edge}{Edge} Destination \doxylink{class_node}{Node}. 
+
+\begin{DoxyReturn}{Returns}
+Returns the \doxylink{class_node}{Node} of the \doxylink{class_edge}{Edge} Destination 
+\end{DoxyReturn}
+\Hypertarget{class_edge_ab288afb3e75bd81b8fb698bd1a3147d9}\label{class_edge_ab288afb3e75bd81b8fb698bd1a3147d9} 
+\index{Edge@{Edge}!getEdgeDistance@{getEdgeDistance}}
+\index{getEdgeDistance@{getEdgeDistance}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getEdgeDistance()}{getEdgeDistance()}}
+{\footnotesize\ttfamily double Edge\+::get\+Edge\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A Function used to get the \doxylink{class_edge}{Edge} Distance. 
+
+\begin{DoxyReturn}{Returns}
+Returns the Integer of the \doxylink{class_edge}{Edge} Distance 
+\end{DoxyReturn}
+\Hypertarget{class_edge_ad699c580a0b315055a02758a4fa5fa77}\label{class_edge_ad699c580a0b315055a02758a4fa5fa77} 
+\index{Edge@{Edge}!getEdgeOrigin@{getEdgeOrigin}}
+\index{getEdgeOrigin@{getEdgeOrigin}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getEdgeOrigin()}{getEdgeOrigin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} Edge\+::get\+Edge\+Origin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A Function used to get the \doxylink{class_edge}{Edge} Origin \doxylink{class_node}{Node}. 
+
+\begin{DoxyReturn}{Returns}
+Returns the \doxylink{class_node}{Node} of the \doxylink{class_edge}{Edge} Origin 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Code/include/\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

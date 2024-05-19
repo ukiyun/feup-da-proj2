@@ -1,0 +1,101 @@
+\doxysection{Graph.\+h}
+\hypertarget{_graph_8h_source}{}\label{_graph_8h_source}\index{Code/include/Graph.h@{Code/include/Graph.h}}
+\mbox{\hyperlink{_graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GRAPH\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GRAPH\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ C++\ Libraries}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Header\ Files}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_node}{Node}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_edge}{Edge}}\{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_edge_a4a367788f327db45cc312dab949e1bd4}{Edge}}(\mbox{\hyperlink{class_node}{Node}}\ *origin,\ \mbox{\hyperlink{class_node}{Node}}\ *destination,\ \textcolor{keywordtype}{double}\ distance);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_edge_a1bfe925e1fdb844de6e28a13d9166228}{Edge}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_node}{Node}}*\ \mbox{\hyperlink{class_edge_ad699c580a0b315055a02758a4fa5fa77}{getEdgeOrigin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_node}{Node}}*\ \mbox{\hyperlink{class_edge_aff79570da26c7666a9c10bc8dc9d1b23}{getEdgeDestination}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_edge_ab288afb3e75bd81b8fb698bd1a3147d9}{getEdgeDistance}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_node}{Node}}*\ edge\_origin\_;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_node}{Node}}*\ edge\_destination\_;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{double}\ edge\_distance\_;}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_node}{Node}}\{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_node_aed31deb496a94022c303668452d6a8c3}{Node}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{double}\ node\_longitude\ =\ 0,\ \textcolor{keywordtype}{double}\ node\_latitude\ =\ 0);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_node_a082d5efb0be81faaeb35dc02b2a4fc76}{Node}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_node_a8648eba251ed257dbff7a462c2b8ad5b}{getNodeId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_node_a0a519b0282bfc88cbb6bd69df7f35af9}{getNodeLongitude}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_node_a3e530efc3cf40720e6aeb2c006c822aa}{getNodeLatitude}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{class_edge}{Edge}}*\ \mbox{\hyperlink{class_node_af6ff39efd7c6d1f774ea29a6230746fd}{add\_edge\_to\_node}}(\mbox{\hyperlink{class_edge}{Edge}}\ *\ new\_edge);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_edge}{Edge}}*\ \mbox{\hyperlink{class_node_aa007a289fddee06fd0bdebd96bca467d}{find\_edge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_node}{Node}}\ *\ node\_destination);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00092\ \ \ \ \ vector<Edge\ *>\ \mbox{\hyperlink{class_node_a1432bb79a927dce8d2f39f751e7926d0}{get\_adjacent\_edges\_vector}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_node_a6be587a0fe20a99ab3544028463990a0}{haversine\_formula}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_node}{Node}}*\ destination\_node)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ node\_id\_;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{double}\ node\_distance\_;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{double}\ node\_longitude\_;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{double}\ node\_latitude\_;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00112\ \ \ \ \ vector<Edge\ *>\ adjacent\_edges\_;}
+\DoxyCodeLine{00113\ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00118\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_graph}{Graph}}\ \{}
+\DoxyCodeLine{00119\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_graph_a90961be426ad80001cbc103b6385df31}{Graph}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_graph_aade642b6d70c46702243ab8fe8b4b0d6}{add\_node}}(\mbox{\hyperlink{class_node}{Node}}\ *\ new\_node);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_graph_a68acd76ae90e33981440a1e5550e26ad}{add\_edge}}(\mbox{\hyperlink{class_edge}{Edge}}\ *\ new\_edge);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{class_node}{Node}}*\ \mbox{\hyperlink{class_graph_ac0822132adb057bea4e22974222c6453}{find\_node}}(\mbox{\hyperlink{class_node}{Node}}\ *\ node);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00137\ \ \ \ \ vector<Node\ *>\ \mbox{\hyperlink{class_graph_ae3cbee7704c561ba6cf4ed53ca277200}{get\_nodes\_vector}}();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_graph_a026d7836526dab4f8c4380d95bdb3e5c}{delete\_graph}}();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_edge}{Edge}}\ *\mbox{\hyperlink{class_graph_ab7238bef627e44abb72825865363651e}{find\_edge}}(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ i1);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_graph_a06fbea230ce8c311804be25a2297a09b}{triangularApproximationTSP}}(\textcolor{keyword}{const}\ vector<Node\ *>\ nodes);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00150\ \ \ \ \ vector<Node\ *>\ nodes\_vector\_;}
+\DoxyCodeLine{00151\ \};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//GRAPH\_H}}
+
+\end{DoxyCode}

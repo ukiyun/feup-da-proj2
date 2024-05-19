@@ -1,0 +1,47 @@
+\doxysection{Toy\+Graph.\+h}
+\hypertarget{_toy_graph_8h_source}{}\label{_toy_graph_8h_source}\index{Code/include/ToyGraph.h@{Code/include/ToyGraph.h}}
+\mbox{\hyperlink{_toy_graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TOYGRAPH\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TOYGRAPH\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ C++\ libraries}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_toy_graph}{ToyGraph}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_toy_graph_a547197b1af313bcf09c251c7c26ab2cf}{ToyGraph}}(\textcolor{keywordtype}{int}\ origin,\ \textcolor{keywordtype}{int}\ destination,\ \textcolor{keywordtype}{double}\ distance,\ \textcolor{keywordtype}{string}\ label\_origin\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keywordtype}{string}\ label\_destination=\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_toy_graph_a1ad78a7612b64be5e06c87724f9e7945}{ToyGraph}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_toy_graph_a8228666c177b5e52e49274d219898e69}{getOrigin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_toy_graph_a6a5f35874295667243fdc783f25ad872}{getDestination}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_toy_graph_ae5e587202947b4e48ea0740078f7dba3}{getDistance}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_toy_graph_a160520edefaba83cd5333d6033259a33}{getOriginLabel}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_toy_graph_a126279ba1bbb8e9281717d02097e3ca2}{getDestinationLabel}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ origin\_;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ destination\_;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{double}\ distance\_;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{string}\ label\_origin\_\ =\ \textcolor{stringliteral}{"{}"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Automatically\ Assume\ that\ There\ is\ no\ Origin\ Label}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{string}\ label\_destination\_\ =\ \textcolor{stringliteral}{"{}"{}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Automatically\ Assume\ that\ There\ is\ no\ Destination\ Label}}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TOYGRAPH\_H}}
+
+\end{DoxyCode}

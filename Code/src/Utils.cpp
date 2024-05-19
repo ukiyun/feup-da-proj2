@@ -76,5 +76,5 @@ float Utils::tsp_real_world(Graph &graph) {
 vector<vector<float>> Utils::AdjacencyMatrix(Graph &graph) {
     int matrix_size = graph.get_nodes_vector().size();
     vector<vector<float>> matrix (matrix_size, vector<float>(matrix_size, 0));
-
+    return matrix;
 }
