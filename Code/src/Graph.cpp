@@ -1,49 +1,51 @@
 #include "../include/Graph.h"
+#include <algorithm>
+
+using namespace std;
 
 // ============ Edge Functions ============== //
 
-Edge::Edge(Node* origin, Node* destination, double distance) {
+Edge::Edge(MyNode* origin, MyNode* destination, double distance) {
     this->edge_origin_ = origin;
     this->edge_destination_ = destination;
     this->edge_distance_ = distance;
 }
 
-Node* Edge::getEdgeOrigin() const {
+MyNode* Edge::getEdgeOrigin() const {
     return this->edge_origin_;
 }
 
-Node* Edge::getEdgeDestination() const{
+MyNode* Edge::getEdgeDestination() const {
     return this->edge_destination_;
 }
 
-double Edge::getEdgeDistance() const{
+double Edge::getEdgeDistance() const {
     return this->edge_distance_;
 }
 
-
 // ============ Node Functions ============== //
 
-Node::Node(int id, double node_longitude, double node_latitude){
+MyNode::MyNode(int id, double node_longitude, double node_latitude) {
     this->node_id_ = id;
     this->node_longitude_ = node_longitude;
     this->node_latitude_ = node_latitude;
 }
 
-int Node::getNodeId() const{
+int MyNode::getNodeId() const {
     return this->node_id_;
 }
 
-double Node::getNodeLongitude() const{
+double MyNode::getNodeLongitude() const {
     return this->node_longitude_;
 }
 
-double Node::getNodeLatitude() const{
+double MyNode::getNodeLatitude() const {
     return this->node_latitude_;
 }
 
-Edge *Node::add_edge_to_node(Edge *new_edge) {
-    for (auto e: adjacent_edges_){
-        if(e == new_edge){
+Edge *MyNode::add_edge_to_node(Edge *new_edge) {
+    for (auto e: adjacent_edges_) {
+        if(e == new_edge) {
             return nullptr;
         }
     }
@@ -51,21 +53,20 @@ Edge *Node::add_edge_to_node(Edge *new_edge) {
     return new_edge;
 }
 
-Edge *Node::find_edge(const Node *node_destination) {
-    for(auto edge: this->adjacent_edges_){
-        if(edge->getEdgeDestination() == node_destination){
+Edge *MyNode::find_edge(const MyNode *node_destination) {
+    for(auto edge: this->adjacent_edges_) {
+        if(edge->getEdgeDestination() == node_destination) {
             return edge;
         }
     }
-
     return nullptr;
 }
 
-std::vector<Edge *> Node::get_adjacent_edges_vector() const {
+vector<Edge *> MyNode::get_adjacent_edges_vector() const {
     return this->adjacent_edges_;
 }
 
-double Node::haversine_formula(const Node *destination_node) const {
+double MyNode::haversine_formula(const MyNode *destination_node) const {
     // Earth Radius in Kilometers
     double earth_radius = 6371;
 
@@ -97,12 +98,10 @@ double Node::haversine_formula(const Node *destination_node) const {
     return d;
 }
 
-
-
 // ============ Graph Functions ============== //
 
-bool Graph::add_node(Node *new_node) {
-    if(find_node(new_node)!= nullptr){
+bool Graph::add_node(MyNode *new_node) {
+    if(find_node(new_node)!= nullptr) {
         return false;
     }
     this->nodes_vector_.push_back(new_node);
@@ -113,7 +112,7 @@ bool Graph::add_edge(Edge *new_edge) {
     auto origin_node = find_node(new_edge->getEdgeOrigin());
     auto destination_node = find_node(new_edge->getEdgeDestination());
 
-    if(origin_node == nullptr || destination_node == nullptr){
+    if(origin_node == nullptr || destination_node == nullptr) {
         perror("Invalid Nodes");
         return false;
     }
@@ -122,20 +121,18 @@ bool Graph::add_edge(Edge *new_edge) {
     return true;
 }
 
-Node *Graph::find_node(Node *node_to_find) {
-    for (auto node: this->nodes_vector_){
-        if(node->getNodeId() == node_to_find->getNodeId()){
+MyNode *Graph::find_node(MyNode *node_to_find) {
+    for (auto node: this->nodes_vector_) {
+        if(node->getNodeId() == node_to_find->getNodeId()) {
             return node;
         }
     }
     return nullptr;
 }
 
-// Implement the find_edge function
 Edge* Graph::find_edge(int originNodeId, int destinationNodeId) const {
     for (auto node : nodes_vector_) {
         if (node->getNodeId() == originNodeId) {
-            // Find the edge from this node to the destination node
             for (auto edge : node->get_adjacent_edges_vector()) {
                 if (edge->getEdgeDestination()->getNodeId() == destinationNodeId) {
                     return edge;
@@ -146,11 +143,10 @@ Edge* Graph::find_edge(int originNodeId, int destinationNodeId) const {
     return nullptr; // Edge not found
 }
 
-
-vector<Node *> Graph::get_nodes_vector(){
+vector<MyNode *> Graph::get_nodes_vector() {
     return this->nodes_vector_;
 }
 
 void Graph::delete_graph() {
-    this->nodes_vector_.clear();        // Removes all Items from the Nodes Vector, i.e., Deleting the Nodes in the Graph
+    this->nodes_vector_.clear(); // Removes all Items from the Nodes Vector, i.e., Deleting the Nodes in the Graph
 }

@@ -1,283 +1,163 @@
 #include "../include/FileHandler.h"
+#include "../include/Graph.h"
+#include "../include/ToyGraph.h"
+#include <algorithm> // Include algorithm header for std::find_if
 
-
-// ============ Toy Graph Functions ============== //
+using namespace std;
 
 vector<ToyGraph> FileHandler::get_toy_graph_vector() {
-    return this->toy_graph_nodes_;
+    return toy_graph_nodes_;
 }
 
-Graph FileHandler::get_toy_graph(){
-    return this->toy_graph_;
+Graph FileHandler::get_toy_graph() {
+    return toy_graph_;
 }
 
-void FileHandler::parse_ToyGraph_csv(string currentLine){
-    vector<string> parsed;                 // Create  a Vector to Store currentLine into Different Vector Elements for Easier Access
-    stringstream ss(currentLine);      // Constructor of Object w/ Type stringstream, and currentLine is Copied to Said ss
-    string singleColumn;                   // Auxiliary String
-
-    while(getline(ss, singleColumn, ',')) {     // Read Data from Input Stream into String Variable, Delimiter Indicates the Division between the Different Attributes
-        parsed.push_back(singleColumn);
-    }
-
-    // Since Origin, Destination and Distance are Integers, Convert said String to Ints
-    ToyGraph ToyGraphInput;
-
-    if(parsed.size()<=3){
-        ToyGraphInput = ToyGraph(stoi(parsed[0]), stoi(parsed[1]), stof(parsed[2]));
-    }
-    else{
-        ToyGraphInput = ToyGraph(stoi(parsed[0]), stoi(parsed[1]), stof(parsed[2]), parsed[3], parsed[4]);
-    }
-
-
-
-    // Check if Toy Graph is not already in the vector
-    for(auto toy: toy_graph_nodes_) {
-        if(toy.getOrigin()==ToyGraphInput.getOrigin() && toy.getDestination()==ToyGraphInput.getDestination() && toy.getDistance()==ToyGraphInput.getDistance() && toy.getOriginLabel()==ToyGraphInput.getOriginLabel() && toy.getDestinationLabel()==ToyGraphInput.getDestinationLabel()) {
-            return;             // Exit function if Toy Graph Input is in the vector
-        }
-    }
-
-    Node * origin_node = new Node(ToyGraphInput.getOrigin());
-    Node * destination_node = new Node(ToyGraphInput.getDestination());
-
-
-    this->toy_graph_.add_node(origin_node);
-    this->toy_graph_.add_node(destination_node);
-
-
-    this->toy_graph_nodes_.push_back(ToyGraphInput);
-
-    Edge * new_edge = new Edge(origin_node, destination_node, ToyGraphInput.getDistance());
-
-    if(this->toy_graph_.find_node(origin_node)->find_edge(origin_node) == nullptr){
-        this->toy_graph_.add_edge(new_edge);
-    }
-
-}
-
-void FileHandler::read_ToyGraph_csv(string fileName){
-    this->toy_graph_nodes_.clear();           // Reset the Vector with the Toy Graph Nodes as to start a new Vector
-    this->toy_graph_.delete_graph();          // Reset the Toy Graph
-    
-    fstream toyGraphCSV;               // Declare FileStream Object
-    string filePath = "../Code/datasets/Toy-Graphs/" + fileName;
-
-    toyGraphCSV.open(filePath);     // filePath is Passed as Constructor and Opens File with that
-    int linePos = 0;                   // Line Position to Handle Possible Headers in CSV
-
-    if(toyGraphCSV.fail()) {           // If Toy Graph CSV doesn't open, i.e., open fails
-        cerr << "Unable to open specified file: " << fileName << endl;     // Print Error Message
-    }
-
+void FileHandler::read_ToyGraph_csv(string fileName) {
+    ifstream file(fileName);
     string line;
-
-    while(getline(toyGraphCSV, line)) {
-        if(line.empty()) {              // Skip Eventual Empty Lines in the CSV
-            continue;
-        }
-        if(linePos == 1) {
-             parse_ToyGraph_csv(line);       // If Line Position is not 0, i.e., the Header, Perform Parse Function to Divide the Line into ToyGraph data type and Add it to the Respective Vector
-        }
-
-        linePos = 1;
+    while (getline(file, line)) {
+        parse_ToyGraph_csv(line);
     }
-    toyGraphCSV.close();                // Close the Open CSV
+    file.close();
 }
 
-// ============ Real World Graph Functions ============== //
+void FileHandler::parse_ToyGraph_csv(string currentLine) {
+    stringstream ss(currentLine);
+    string token;
 
-vector<Node> FileHandler::get_real_world_graph_vector() {
-    return this->real_world_nodes_;
+    getline(ss, token, ',');
+    int origin = stoi(token);
+    getline(ss, token, ',');
+    int destination = stoi(token);
+    getline(ss, token, ',');
+    double distance = stod(token);
+    getline(ss, token, ',');
+    string label_origin = token;
+    getline(ss, token, ',');
+    string label_destination = token;
+
+    ToyGraph ToyGraphInput(origin, destination, distance, label_origin, label_destination);
+
+    // Use appropriate longitude and latitude for ToyGraph
+    MyNode* origin_node = new MyNode(ToyGraphInput.getOrigin(), 0.0, 0.0);
+    MyNode* destination_node = new MyNode(ToyGraphInput.getDestination(), 0.0, 0.0);
+
+    Edge* edge = new Edge(origin_node, destination_node, ToyGraphInput.getDistance());
+    toy_graph_.add_node(origin_node);
+    toy_graph_.add_node(destination_node);
+    toy_graph_.add_edge(edge);
+}
+
+vector<MyNode> FileHandler::get_real_world_graph_vector() {
+    return real_world_nodes_;
 }
 
 Graph FileHandler::get_real_world_graph() {
-    return this->real_world_graph_;
+    return real_world_graph_;
+}
+
+void FileHandler::read_RealWorld_csv(string NodeFilePath, string EdgeFilePath) {
+    ifstream nodesFile(NodeFilePath);
+    ifstream edgesFile(EdgeFilePath);
+    string line;
+
+    while (getline(nodesFile, line)) {
+        parse_RealWorld_Nodes_csv(line);
+    }
+
+    while (getline(edgesFile, line)) {
+        parse_RealWorld_Edges_csv(line);
+    }
+
+    nodesFile.close();
+    edgesFile.close();
 }
 
 void FileHandler::parse_RealWorld_Nodes_csv(string currentLine) {
-    vector<string> parsed;                 // Create  a Vector to Store currentLine into Different Vector Elements for Easier Access
-    stringstream ss(currentLine);      // Constructor of Object w/ Type stringstream, and currentLine is Copied to Said ss
-    string singleColumn;                   // Auxiliary String
+    stringstream ss(currentLine);
+    string token;
 
-    while(getline(ss, singleColumn, ',')) {     // Read Data from Input Stream into String Variable, Delimiter Indicates the Division between the Different Attributes
-        parsed.push_back(singleColumn);
-    }
+    getline(ss, token, ',');
+    int id = stoi(token);
+    getline(ss, token, ',');
+    double longitude = stod(token);
+    getline(ss, token, ',');
+    double latitude = stod(token);
 
-    // Since ID, Longitude and Latitude are Integers/Doubles, Convert said Strings to Ints/Doubles
-    Node RealWorldInput(stoi(parsed[0]), stod(parsed[1]), stod(parsed[2]));
-
-
-    // Check if Toy Graph is not already in the vector
-    for(auto node: real_world_nodes_) {
-        if(node.getNodeId()==RealWorldInput.getNodeId() && node.getNodeLongitude()==RealWorldInput.getNodeLongitude() && node.getNodeLatitude()==RealWorldInput.getNodeLatitude()) {
-            return;             // Exit function if Real World Input is in the vector
-        }
-    }
-
-    Node * real_node = new Node(RealWorldInput.getNodeId(), RealWorldInput.getNodeLongitude(), RealWorldInput.getNodeLatitude());
-    // Adding The Nodes from the Real World CSV to the Real World Graph.
-    this->real_world_graph_.add_node(real_node);  // Add Node to Graph
-    this->real_world_nodes_.push_back(RealWorldInput);
+    MyNode node(id, longitude, latitude);
+    real_world_nodes_.push_back(node);
 }
 
 void FileHandler::parse_RealWorld_Edges_csv(string currentLine) {
-    vector<string> parsed;                 // Create  a Vector to Store currentLine into Different Vector Elements for Easier Access
-    stringstream ss(currentLine);      // Constructor of Object w/ Type stringstream, and currentLine is Copied to Said ss
-    string singleColumn;                   // Auxiliary String
+    stringstream ss(currentLine);
+    string token;
 
-    while(getline(ss, singleColumn, ',')) {     // Read Data from Input Stream into String Variable, Delimiter Indicates the Division between the Different Attributes
-        parsed.push_back(singleColumn);
-    }
+    getline(ss, token, ',');
+    int originId = stoi(token);
+    getline(ss, token, ',');
+    int destinationId = stoi(token);
+    getline(ss, token, ',');
+    double distance = stod(token);
 
-    // Since Origin, Destination are Nodes, Convert said String to Nodes
-    // Since these Nodes have Integer ID, also Convert the String to Int
-    Node Origin(stoi(parsed[0]));
-    Node Destination(stoi(parsed[1]));
+    // Assuming nodes are already created and stored in real_world_nodes_
+    auto originNode = find_if(real_world_nodes_.begin(), real_world_nodes_.end(), [originId](const MyNode& node) {
+        return node.getNodeId() == originId;
+    });
 
-    // Creating Same Nodes but as Pointers for Edge Input
-    Node * Origin_Node= new Node(Origin.getNodeId());
-    Node * Destination_Node= new Node(Destination.getNodeId());
+    auto destinationNode = find_if(real_world_nodes_.begin(), real_world_nodes_.end(), [destinationId](const MyNode& node) {
+        return node.getNodeId() == destinationId;
+    });
 
-    // Input Created Nodes and Convert String with Distance to Double
-    Edge * RealWorldInput = new Edge(Origin_Node, Destination_Node, stod(parsed[2]));
-
-    real_world_graph_.find_node(Origin_Node)->add_edge_to_node(RealWorldInput);
-
-    if(this->real_world_graph_.find_node(Origin_Node)->find_edge(Origin_Node) == nullptr){
-        this->real_world_graph_.add_edge(RealWorldInput);
+    if (originNode != real_world_nodes_.end() && destinationNode != real_world_nodes_.end()) {
+        MyNode* origin_node_ptr = &(*originNode);
+        MyNode* destination_node_ptr = &(*destinationNode);
+        Edge* edge = new Edge(origin_node_ptr, destination_node_ptr, distance);
+        real_world_graph_.add_edge(edge);
     }
 }
-
-void FileHandler::read_RealWorld_csv(string NodeFilePath, string EdgeFilePath){
-    this->real_world_nodes_.clear();                 // Reset the Vector with the Real World Graph Nodes as to start a new Vector
-    this->real_world_graph_.delete_graph();          // Reset the Real World Graph
-
-    // ---------------------- Node Handling ---------------------- //
-    fstream realWorldNodesCSV;                      // Declare FileStream Object
-    realWorldNodesCSV.open(NodeFilePath);        // NodeFilePath is Passed as Constructor and Open the File
-
-    // This CSV has a header
-    int linePos = 0;
-
-    if(realWorldNodesCSV.fail()) {                   // If Real World Graph CSV doesn't open, i.e., open fails
-        cerr << "Unable to open specified file: " << NodeFilePath << endl;     // Print Error Message
-    }
-
-    string line;
-    while(getline(realWorldNodesCSV, line)) {
-        if(line.empty()) {              // Skip Eventual Empty Lines in the CSV
-            continue;
-        }
-
-        if(linePos == 1){
-            parse_RealWorld_Nodes_csv(line);      // Perform Parse Function to Divide the Line into readable data
-        }
-
-        linePos = 1;
-    }
-
-    realWorldNodesCSV.close();                          // Close the Open CSV
-
-
-    // ---------------------- Edge Handling ---------------------- //
-    fstream realWorldEdgesCSV;                      // Declare FileStream Object
-    realWorldNodesCSV.open(EdgeFilePath);        // EdgeFilePath is Passed as Constructor and Open the File
-
-    // This CSV has a header
-    int linePos2 = 0;
-
-    if(realWorldEdgesCSV.fail()) {                   // If Real World Graph CSV doesn't open, i.e., open fails
-        cerr << "Unable to open specified file: " << NodeFilePath << endl;     // Print Error Message
-    }
-
-    string lined;
-    while(getline(realWorldEdgesCSV, lined)) {
-        if(line.empty()) {              // Skip Eventual Empty Lines in the CSV
-            continue;
-        }
-
-        if(linePos2 == 1){
-            parse_RealWorld_Edges_csv(lined);      // Perform Parse Function to Divide the Line into readable data
-        }
-
-        linePos2 = 1;
-    }
-
-    realWorldEdgesCSV.close();                          // Close the Open CSV
-
-}
-
-
-// ============ Extra Fully Connected Graph Functions ============== //
 
 vector<ToyGraph> FileHandler::get_fully_connected_graph_vector() {
-    return this->fully_connected_nodes_;
+    return fully_connected_nodes_;
 }
 
 Graph FileHandler::get_fully_connected_graph() {
-    return this->fully_connected_graph_;
+    return fully_connected_graph_;
 }
 
-void FileHandler::parse_FullyConnected_csv(string currentLine){
-    vector<string> parsed;                 // Create  a Vector to Store currentLine into Different Vector Elements for Easier Access
-    stringstream ss(currentLine);      // Constructor of Object w/ Type stringstream, and currentLine is Copied to Said ss
-    string singleColumn;                   // Auxiliary String
-
-    while(getline(ss, singleColumn, ',')) {     // Read Data from Input Stream into String Variable, Delimiter Indicates the Division between the Different Attributes
-        parsed.push_back(singleColumn);
-    }
-
-    // Since Origin, Destination and Distance are Integers, Convert said String to Ints
-    ToyGraph FullyConnectedInput(stoi(parsed[0]), stoi(parsed[1]), stof(parsed[2]));     // Construct Toy Graph Item with Parameters from String Vector
-
-    // Check if Toy Graph is not already in the vector
-    for(auto fully: get_fully_connected_graph_vector()) {
-        if(fully.getOrigin()==FullyConnectedInput.getOrigin() && fully.getDestination()==FullyConnectedInput.getDestination() && fully.getDistance()==FullyConnectedInput.getDistance() && fully.getOriginLabel()==FullyConnectedInput.getOriginLabel() && fully.getDestinationLabel()==FullyConnectedInput.getDestinationLabel()) {
-            return;             // Exit function if Fully Connected Input is in the vector
-        }
-    }
-
-    Node * origin_node = new Node(FullyConnectedInput.getOrigin());
-    Node * destination_node = new Node(FullyConnectedInput.getDestination());
-
-
-    this->fully_connected_graph_.add_node(origin_node);
-    this->fully_connected_graph_.add_node(destination_node);
-
-
-    this->fully_connected_nodes_.push_back(FullyConnectedInput);
-
-    Edge * new_edge = new Edge(origin_node, destination_node, FullyConnectedInput.getDistance());
-
-    if(this->fully_connected_graph_.find_node(origin_node)->find_edge(origin_node) == nullptr){
-        this->fully_connected_graph_.add_edge(new_edge);
-    }
-}
-
-void FileHandler::read_FullyConnected_csv(string fileName){
-    this->fully_connected_nodes_.clear();           // Clear vector to avoid overstacking graph results
-    this->fully_connected_graph_.delete_graph();    // Reset the Fully Connected Graph
-
-    fstream fullyConnectedCSV;               // Declare FileStream Object
-    string filePath = "../Code/datasets/Extra_Fully_Connected_Graphs/" + fileName;
-    fullyConnectedCSV.open(filePath);     // filePath is Passed as Constructor and Opens File with that Path
-    // This CSV doesn't have a Header
-
-    if(fullyConnectedCSV.fail()) {           // If Fully Connected Graph CSV doesn't open, i.e., open fails
-        cerr << "Unable to open specified file: " << filePath << endl;     // Print Error Message
-    }
-
+void FileHandler::read_FullyConnected_csv(string filePath) {
+    ifstream file(filePath);
     string line;
-    while(getline(fullyConnectedCSV, line)) {
-        if(line.empty()) {              // Skip Eventual Empty Lines in the CSV
-            continue;
-        }
-        parse_FullyConnected_csv(line);      // Perform Parse Function to Divide the Line into ToyGraph data type and Add it to the Fully Connected Vector
+    while (getline(file, line)) {
+        parse_FullyConnected_csv(line);
     }
-
-    fullyConnectedCSV.close();                // Close the Open CSV
+    file.close();
 }
 
+void FileHandler::parse_FullyConnected_csv(string currentLine) {
+    stringstream ss(currentLine);
+    string token;
 
+    getline(ss, token, ',');
+    int origin = stoi(token);
+    getline(ss, token, ',');
+    int destination = stoi(token);
+    getline(ss, token, ',');
+    double distance = stod(token);
+
+    ToyGraph FullyConnectedInput(origin, destination, distance);
+
+    MyNode* origin_node = new MyNode(FullyConnectedInput.getOrigin(), 0.0, 0.0);
+    MyNode* destination_node = new MyNode(FullyConnectedInput.getDestination(), 0.0, 0.0);
+
+    Edge* edge = new Edge(origin_node, destination_node, FullyConnectedInput.getDistance());
+    fully_connected_graph_.add_node(origin_node);
+    fully_connected_graph_.add_node(destination_node);
+    fully_connected_graph_.add_edge(edge);
+}
+
+void FileHandler::add_nodes_to_graph(Graph* graph) {
+    for (auto& node : real_world_nodes_) {
+        graph->add_node(&node);
+    }
+}

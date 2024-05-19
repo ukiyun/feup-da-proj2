@@ -30,6 +30,4 @@ string ToyGraph::getDestinationLabel() const {
     return this->label_destination_;
 }
 
-vector<Node *> Graph::get_nodes_vector() const {
-    return this->nodes_vector_;
-}
+

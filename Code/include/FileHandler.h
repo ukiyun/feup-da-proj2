@@ -15,12 +15,10 @@
 
 using namespace std;
 
-
 /// @class FileHandler
 /// @brief A Class Dedicated to the Handling of the Files and Functions related to those
 class FileHandler {
 public:
-
     // ============ Toy Graph Functions ============== //
     vector<ToyGraph> get_toy_graph_vector();
     Graph get_toy_graph();
@@ -28,9 +26,8 @@ public:
     void read_ToyGraph_csv(string fileName);
     void parse_ToyGraph_csv(string currentLine);
 
-
     // ============ Real World Graph Functions ============== //
-    vector<Node> get_real_world_graph_vector();
+    vector<MyNode> get_real_world_graph_vector();
     Graph get_real_world_graph();
 
     void read_RealWorld_csv(string NodeFilePath, string EdgeFilePath);
@@ -54,7 +51,7 @@ private:
     vector<ToyGraph> toy_graph_nodes_;
 
     /// @brief Vector with the Real World Graph Nodes
-    vector<Node> real_world_nodes_; // still dont know datatype inside vector
+    vector<MyNode> real_world_nodes_;
 
     /// @brief Vector with the Extra Fully Connected Graph Nodes
     vector<ToyGraph> fully_connected_nodes_;
@@ -68,6 +65,5 @@ private:
     /// @brief Graph with the Extra Fully Connected Graph data
     Graph fully_connected_graph_;
 };
-
 
 #endif //FILEHANDLER_H
