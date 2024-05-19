@@ -143,7 +143,7 @@ Edge* Graph::find_edge(int originNodeId, int destinationNodeId) const {
     return nullptr; // Edge not found
 }
 
-vector<MyNode *> Graph::get_nodes_vector() {
+vector<MyNode *> Graph::get_nodes_vector() const { // Add const here
     return this->nodes_vector_;
 }
 

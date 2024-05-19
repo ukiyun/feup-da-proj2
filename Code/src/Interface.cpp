@@ -1,7 +1,9 @@
 #include "../include/Interface.h"
 #include "../include/Utils.h"
 #include <iomanip>
-#include <unistd.h> // For usleep
+#include <unistd.h>
+
+using namespace std;
 
 void Interface::open() {
     while (true) {
@@ -17,13 +19,11 @@ bool Interface::displayMainMenu() {
     cout << char(218) << string(4, char(196)) << " Travelling Salesman Problem " << string(3, char(196)) << char(191) << endl;
     cout << "|                                    |\n";
     cout << "|      1. Backtracking Algorithm     |\n";
-    cout << "|     2. Triangular Approximation    |\n";
-    cout << "|        3. Other Heuristics         |\n";
-    cout << "|      4. TSP in the Real World      |\n";
-    cout << "|              5. Exit               |\n";
-    cout << "|       6. Show Toy Graph Data       |\n";
-    cout << "|    7. Show Real World Graph Data   |\n";
-    cout << "| 8. Show Fully Connected Graph Data |\n";
+    cout << "|        2. Other Heuristics         |\n";
+    cout << "|              3. Exit               |\n";
+    cout << "|       4. Show Toy Graph Data       |\n";
+    cout << "|    5. Show Real World Graph Data   |\n";
+    cout << "|  6. Show Fully Connected Graph Data|\n";
     cout << "|                                    |\n";
     cout << char(192) << string(36, char(196)) << char(217) << endl;
     string choice;
@@ -38,24 +38,18 @@ bool Interface::displayMainMenu() {
                 this->backtracking_algorithm();
                 break;
             case 2:
-                this->triangular_approximation();
-                break;
-            case 3:
                 this->other_heuristics();
                 break;
-            case 4:
-                this->tsp_in_real_world();
-                break;
-            case 5:
+            case 3:
                 cout << "Exiting program. Goodbye!" << endl;
                 return false;
-            case 6:
+            case 4:
                 this->choose_toy_graph(1);
                 break;
-            case 7:
+            case 5:
                 this->choose_real_world_graph(2);
                 break;
-            case 8:
+            case 6:
                 this->choose_fully_connected_graph(3);
                 break;
             default:
@@ -119,16 +113,12 @@ int Interface::choose_graph_type() {
         switch (stoi(choice)) {
             case 1:
                 return 1;
-                break;
             case 2:
                 return 2;
-                break;
             case 3:
                 return 3;
-                break;
             case 4:
                 return 4;
-                break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
         }
@@ -175,13 +165,7 @@ void Interface::choose_toy_graph(int mode) {
                         this->backtracking_algorithm();
                         break;
                     case 2:
-                        this->triangular_approximation();
-                        break;
-                    case 3:
                         this->other_heuristics();
-                        break;
-                    case 4:
-                        this->tsp_in_real_world();
                         break;
                     default:
                         cout << "Invalid choice. Please try again." << endl;
@@ -232,13 +216,7 @@ void Interface::choose_real_world_graph(int mode) {
                         this->backtracking_algorithm();
                         break;
                     case 2:
-                        this->triangular_approximation();
-                        break;
-                    case 3:
                         this->other_heuristics();
-                        break;
-                    case 4:
-                        this->tsp_in_real_world();
                         break;
                     default:
                         cout << "Invalid choice. Please try again." << endl;
@@ -333,13 +311,7 @@ void Interface::choose_fully_connected_graph(int mode) {
                         this->backtracking_algorithm();
                         break;
                     case 2:
-                        this->triangular_approximation();
-                        break;
-                    case 3:
                         this->other_heuristics();
-                        break;
-                    case 4:
-                        this->tsp_in_real_world();
                         break;
                     default:
                         cout << "Invalid choice. Please try again." << endl;
@@ -353,22 +325,38 @@ void Interface::choose_fully_connected_graph(int mode) {
     }
 }
 
-void Interface::triangular_approximation() {
-    cout << "Triangular Approximation algorithm not implemented yet." << endl;
-    // Implement the Triangular Approximation algorithm here
-}
-
 void Interface::other_heuristics() {
-    cout << "Other heuristics algorithm not implemented yet." << endl;
-    // Implement the other heuristics algorithm here
+    int mode = choose_graph_type();
+    Graph selectedGraph;
+    switch (mode) {
+        case 1:
+            choose_toy_graph(1);
+            selectedGraph = fhs_.get_toy_graph();
+            break;
+        case 2:
+            choose_real_world_graph(1);
+            selectedGraph = fhs_.get_real_world_graph();
+            break;
+        case 3:
+            choose_fully_connected_graph(1);
+            selectedGraph = fhs_.get_fully_connected_graph();
+            break;
+        case 4:
+            displayMainMenu();
+            return;
+        default:
+            return;
+    }
+
+    cout << "Executing Other Heuristics..." << endl;
+    float result = Utils::nearest_neighbor(selectedGraph);
+    cout << "The minimum path length found by the nearest neighbor heuristic is: " << result << endl;
+    cout << "Press any key to return to the main menu...";
+    cin.ignore();
+    cin.get();
 }
 
-void Interface::tsp_in_real_world() {
-    cout << "TSP in Real World algorithm not implemented yet." << endl;
-    // Implement the TSP in Real World algorithm here
-}
-
-void Interface::show_selected_toy_csv(){
+void Interface::show_selected_toy_csv() {
     cout << char(218)<< string(24, char(196)) << " Toy CSV " << string(23, char(196)) << char(191) << endl;
     cout << "|" << string(56, char(196)) << "|" << endl;
     cout << "| Origin | Dest. | Distance | Origin Label | Dest. Label |\n";
@@ -599,7 +587,7 @@ void Interface::show_selected_real_world_graph() {
 }
 
 void Interface::show_selected_fully_connected_graph() {
-    cout << char(218)<< string(16, char(196)) << " Fully Connected Graph " << string(16, char(196)) << char(191) << endl;
+    cout << char(218)<< string(20, char(196)) << " Fully Connected Graph " << string(21, char(196)) << char(191) << endl;
     cout << "|" << string(55, char(196)) << "|" << endl;
     cout << "|            NodeID ( Longitude , Latitude )            |\n";
     cout << "|" << string(55, char(196)) << "|" << endl;

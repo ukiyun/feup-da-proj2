@@ -15,7 +15,7 @@ public:
     bool add_edge(Edge *new_edge);
     MyNode *find_node(MyNode *node_to_find);
     Edge *find_edge(int originNodeId, int destinationNodeId) const;
-    vector<MyNode *> get_nodes_vector();
+    vector<MyNode *> get_nodes_vector() const; // Add const here
     void delete_graph();
 private:
     vector<MyNode *> nodes_vector_;

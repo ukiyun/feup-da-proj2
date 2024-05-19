@@ -1,24 +1,18 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cmath>
-#include <limits> // for numeric_limits
-
 #include "Graph.h"
 
-using namespace std;
-
-/// @class Utils
-/// @brief A Class Dedicated to the Implementation of Auxiliary Functions
 class Utils {
 public:
     static float backtracking(Graph &graph);
-    float tsp(const Graph& graph);
-    static vector<int> triangular_approximation(const Graph& graph);
-    static void backtrackingHelper(Graph &graph, vector<bool> &visited, int currentVertex, int count, float pathLength, float &minPathLength);
+    static float nearest_neighbor(Graph &graph);
+    // Add the declarations here when you implement the functions
+    static float triangular_approximation(Graph &graph); // Placeholder for future implementation
+    static float tsp_real_world(Graph &graph);           // Placeholder for future implementation
+
+private:
+    static void backtrackingHelper(Graph &graph, std::vector<bool> &visited, int currentVertex, int startVertex, float pathLength, float &minPathLength);
 };
 
-#endif //UTILS_H
+#endif // UTILS_H
