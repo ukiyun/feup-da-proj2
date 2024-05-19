@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <dos.h>
 #include <windows.h>
+#include <iomanip>
 
 // Header Files
 #include "FileHandler.h"
@@ -38,6 +39,9 @@ public:
 
     /// @brief Function used to Choose which Fully Connected Graph CSV to Work With
     void choose_fully_connected_graph(int mode);
+
+    /// @brief Function used to Show a Menu to Ask the User what to do with the Chosen Graph
+    void show_selection_menu(int mode);
 
     // ============ Backtracking Functions ============== //
     /// @brief Program Option to show a menu the Menu Related to Backtracking Functions

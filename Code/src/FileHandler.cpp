@@ -270,13 +270,15 @@ void FileHandler::read_FullyConnected_csv(string fileName){
     }
 
     string line;
+    int linePos = 0;
     while(getline(fullyConnectedCSV, line)) {
         if(line.empty()) {              // Skip Eventual Empty Lines in the CSV
+            linePos +=1;
             continue;
         }
         parse_FullyConnected_csv(line);      // Perform Parse Function to Divide the Line into ToyGraph data type and Add it to the Fully Connected Vector
+        linePos +=1;
     }
-
     fullyConnectedCSV.close();                // Close the Open CSV
 }
 

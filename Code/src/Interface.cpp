@@ -1,5 +1,5 @@
 #include "../include/Interface.h"
-#include <iomanip>
+
 void Interface::open() {
     while(true){
         if(!displayMainMenu()){
@@ -18,9 +18,6 @@ bool Interface::displayMainMenu() {
     cout << "|        3. Other Heuristics         |\n";
     cout << "|      4. TSP in the Real World      |\n";
     cout << "|              5. Exit               |\n";
-    cout << "|       6. Show Toy Graph Data       |\n";
-    cout << "|    7. Show Real World Graph Data   |\n";
-    cout << "| 8. Show Fully Connected Graph Data |\n";
     cout << "|                                    |\n";
     cout << char(192) << string(36, char(196)) << char(217) << endl;
     string choice;
@@ -48,19 +45,6 @@ bool Interface::displayMainMenu() {
             case 5:
                 cout<<"Exiting program. Goodbye!"<<endl;
                 return false;
-
-            case 6:
-                this->choose_toy_graph(1);
-                break;
-
-            case 7:
-                this->choose_real_world_graph(2);
-                break;
-
-            case 8:
-                this->choose_fully_connected_graph(3);
-                break;
-
             default:
                 cout<<"Invalid choice. Please try again."<<endl;
         }
@@ -138,15 +122,16 @@ void Interface::choose_toy_graph(int mode) {
         switch (stoi(choice)) {
             case 1:
                 fhs_.read_ToyGraph_csv("shipping.csv");
+                show_selection_menu(mode);
                 show_selected_toy_csv();
                 break;
             case 2:
                 fhs_.read_ToyGraph_csv("stadiums.csv");
-                show_selected_toy_csv();
+                show_selection_menu(mode);
                 break;
             case 3:
                 fhs_.read_ToyGraph_csv("tourism.csv");
-                show_selected_toy_csv();
+                show_selection_menu(mode);
                 break;
             case 4:
                 switch(mode){
@@ -200,15 +185,15 @@ void Interface::choose_real_world_graph(int mode) {
         switch (stoi(choice)) {
             case 1:
                 fhs_.read_RealWorld_csv("../Code/datasets/Real-world-Graphs/graph1/nodes.csv", "../Code/datasets/Real-world-Graphs/graph1/edges.csv");
-                show_selected_real_world_csv();
+                show_selection_menu(mode);
                 break;
             case 2:
                 fhs_.read_RealWorld_csv("../Code/datasets/Real-world-Graphs/graph2/nodes.csv", "../Code/datasets/Real-world-Graphs/graph2/edges.csv");
-                show_selected_real_world_csv();
+                show_selection_menu(mode);
                 break;
             case 3:
                 fhs_.read_RealWorld_csv("../Code/datasets/Real-world-Graphs/graph3/nodes.csv", "../Code/datasets/Real-world-Graphs/graph3/edges.csv");
-                show_selected_real_world_csv();
+                show_selection_menu(mode);
                 break;
             case 4:
                 switch(mode){
@@ -270,51 +255,51 @@ void Interface::choose_fully_connected_graph(int mode) {
         switch (stoi(choice)) {
             case 1:
                 fhs_.read_FullyConnected_csv("edges_25.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 2:
                 fhs_.read_FullyConnected_csv("edges_50.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 3:
                 fhs_.read_FullyConnected_csv("edges_75.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 4:
                 fhs_.read_FullyConnected_csv("edges_100.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 5:
                 fhs_.read_FullyConnected_csv("edges_200.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 6:
                 fhs_.read_FullyConnected_csv("edges_300.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 7:
                 fhs_.read_FullyConnected_csv("edges_400.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 8:
                 fhs_.read_FullyConnected_csv("edges_500.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 9:
                 fhs_.read_FullyConnected_csv("edges_600.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 10:
                 fhs_.read_FullyConnected_csv("edges_700.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 11:
                 fhs_.read_FullyConnected_csv("edges_800.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 12:
                 fhs_.read_FullyConnected_csv("edges_900.csv");
-                show_selected_fully_connected_csv();
+                show_selection_menu(mode);
                 break;
             case 13:
                 switch (mode) {
@@ -344,6 +329,127 @@ void Interface::choose_fully_connected_graph(int mode) {
     }
 }
 
+void Interface::show_selection_menu(int mode) {
+    usleep(650000);     // sleep in microseconds
+    cout << char(218)<< string(6, char(196)) << " Select Wanted Operation " << string(5, char(196)) << char(191) << endl;
+    cout << "|                                    |\n";
+    cout << "|         1. Display CSV Data        |\n";
+    cout << "|        2. Graph Visualization      |\n";
+    cout << "|         3. Problem Solution        |\n";
+    cout << "|            4. Statistics           |\n";
+    cout << "|             5. Go Back             |\n";
+    cout << "|   6. Select Another Type of Graph  |\n";
+    cout << "|            7. Main Menu            |\n";
+    cout << "|                                    |\n";
+    cout << char(192) << string(36, char(196)) << char(217) << endl;
+    string choice;
+    cout<<"Enter your choice: ";
+    cin >> choice;
+
+    cout << "\n";
+
+    // Display the menu based on the prompt from the user
+
+    try{
+        switch (stoi(choice)) {
+            case 1:
+                switch(mode){
+                    case 1:
+                        show_selected_toy_csv();
+                        break;
+                    case 2:
+                        show_selected_real_world_csv();
+                        break;
+                    case 3:
+                        show_selected_fully_connected_csv();
+                        break;
+                }
+                break;
+            case 2:
+                switch(mode){
+                    case 1:
+                        show_selected_toy_graph();
+                        break;
+                    case 2:
+                        show_selected_real_world_graph();
+                        break;
+                    case 3:
+                        show_selected_fully_connected_graph();
+                        break;
+                }
+                break;
+            case 3:
+                switch(mode){
+                    case 1:
+                        // Missing Functions
+                        break;
+                    case 2:
+                        // Missing Functions
+                        break;
+                    case 3:
+                        // Missing Functions
+                        break;
+                }
+                break;
+            case 4:
+                switch(mode){
+                    case 1:
+                        // missing stats
+                        break;
+                    case 2:
+                        // missing stats
+                        break;
+                    case 3:
+                        // missing stats
+                        break;
+                }
+                break;
+            case 5:
+                    switch(mode){
+                        case 1:
+                            choose_toy_graph(mode);
+                            break;
+                        case 2:
+                            choose_real_world_graph(mode);
+                            break;
+                        case 3:
+                            choose_fully_connected_graph(mode);
+                            break;
+                    }
+                break;
+            case 6:
+                switch(mode){
+                    backtracking_algorithm();
+                    case 1:
+                        this->backtracking_algorithm();
+                        break;
+                    case 2:
+                        this->triangular_approximation();
+                        break;
+                    case 3:
+                        this->other_heuristics();
+                        break;
+                    case 4:
+                        this->tsp_in_real_world();
+                        break;
+                    default:
+                        cout<<"Invalid choice. Please try again."<<endl;
+                        break;
+                }
+            case 7:
+                this->displayMainMenu();
+                break;
+            default:
+                cout<<"Invalid choice. Please try again."<<endl;
+                choose_toy_graph(mode);
+        }
+
+    }
+    catch (invalid_argument &choice){
+        cout << "Invalid Choice. Please try Again" << endl;
+    }
+}
+
 // ============ Backtracking Functions ============== //
 
 void Interface::backtracking_algorithm() {
@@ -351,14 +457,17 @@ void Interface::backtracking_algorithm() {
     switch (mode) {
         case 1:
             this->choose_toy_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
             break;
         case 2:
             this->choose_real_world_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
             break;
         case 3:
             this->choose_fully_connected_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
         case 4:
             this->displayMainMenu();
@@ -377,14 +486,17 @@ void Interface::triangular_approximation() {
     switch (mode) {
         case 1:
             this->choose_toy_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
             break;
         case 2:
             this->choose_real_world_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
             break;
         case 3:
             this->choose_fully_connected_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
         case 4:
             this->displayMainMenu();
@@ -399,17 +511,21 @@ void Interface::other_heuristics() {
     switch (mode) {
         case 1:
             this->choose_toy_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
             break;
         case 2:
             this->choose_real_world_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
             break;
         case 3:
             this->choose_fully_connected_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
         case 4:
             this->displayMainMenu();
+            this->show_selection_menu(mode);
             break;
     }
 }
@@ -421,14 +537,17 @@ void Interface::tsp_in_real_world() {
     switch (mode) {
         case 1:
             this->choose_toy_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
             break;
         case 2:
             this->choose_real_world_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
             break;
         case 3:
             this->choose_fully_connected_graph(mode);
+            this->show_selection_menu(mode);
             //missing functions;
         case 4:
             this->displayMainMenu();
@@ -456,8 +575,8 @@ void Interface::show_selected_toy_csv(){
     }
 
     cout << "|" << string(56, char(196)) << "|" << endl;
-    cout << "|                      1. Main Menu                      |\n";
-    cout << "|                 2. Graph Visualization                 |\n";
+    cout << "|                      1. Go Back                        |\n";
+    cout << "|                      2. Main Menu                      |\n";
     cout << char(192) << string(56, char(196)) << char(217) << endl;
     cout << "Enter your choice" << endl;
 
@@ -468,11 +587,11 @@ void Interface::show_selected_toy_csv(){
     try{
         switch (stoi(choice)) {
             case 1:
-                displayMainMenu();
+                show_selection_menu(1);
                 break;
 
             case 2:
-                show_selected_toy_graph();
+                displayMainMenu();
                 break;
             default:
                 cout<<"Invalid choice. Please try again."<<endl;
@@ -484,7 +603,7 @@ void Interface::show_selected_toy_csv(){
     }
 }
 
-void Interface::show_selected_real_world_csv(){
+void Interface::show_selected_real_world_csv() {
     cout << char(218)<< string(6, char(196)) << " Real World CSV " << string(5, char(196)) << char(191) << endl;
     cout << "|" << string(27, char(196)) << "|" << endl;
     cout << "| Id | Longitude | Latitude |\n";
@@ -499,8 +618,8 @@ void Interface::show_selected_real_world_csv(){
     }
     cout << "|                           |\n";
     cout << "|" << string(27, char(196)) << "|" << endl;
-    cout << "|       1. Main Menu        |\n";
-    cout << "|   2. Graph Visualization  |\n";
+    cout << "|       1. Go Back          |\n";
+    cout << "|       2. Main Menu        |\n";
     cout << char(192) << string(27, char(196)) << char(217) << endl;
     cout << "Enter your choice" << endl;
 
@@ -511,10 +630,10 @@ void Interface::show_selected_real_world_csv(){
     try{
         switch (stoi(choice)) {
             case 1:
-                displayMainMenu();
+                show_selection_menu(2);
                 break;
             case 2:
-                show_selected_real_world_graph();
+                displayMainMenu();
                 break;
             default:
                 cout<<"Invalid choice. Please try again."<<endl;
@@ -526,7 +645,7 @@ void Interface::show_selected_real_world_csv(){
     }
 }
 
-void Interface::show_selected_fully_connected_csv(){
+void Interface::show_selected_fully_connected_csv() {
     cout << char(218)<< string(3, char(196)) << " Fully Connected CSV " << string(3, char(196)) << char(191) << endl;
     cout << "|" << string(27, char(196)) << "|" << endl;
     cout << "| Origin | Dest. | Distance |\n";
@@ -534,15 +653,17 @@ void Interface::show_selected_fully_connected_csv(){
 
     vector<ToyGraph> fullyConnectedGraph = this->fhs_.get_fully_connected_graph_vector();
 
+    const string separator = " ";
+    const string separator_line = "|";
     for (auto extra: fullyConnectedGraph) {
-        cout << "|  " << setw(4) << extra.getOrigin() << "  |  ";
-        cout << setw(3) << extra.getDestination() << "  |  ";
-        cout << setw(5) << extra.getDistance()<< "  |  " << endl;
+        cout << separator_line << separator << setw(6) << extra.getOrigin() << separator;
+        cout << separator_line << separator <<  setw(5) << extra.getDestination() << separator;
+        cout << separator_line << separator << setw(8) << extra.getDistance()<< separator << separator_line << endl;
     }
     cout << "|                           |\n";
     cout << "|" << string(27, char(196)) << "|" << endl;
-    cout << "|       1. Main Menu        |\n";
-    cout << "|   2. Graph Visualization  |\n";
+    cout << "|       1. Go Back          |\n";
+    cout << "|       2. Main Menu        |\n";
     cout << char(192) << string(27, char(196)) << char(217) << endl;
     cout << "Enter your choice" << endl;
 
@@ -553,10 +674,10 @@ void Interface::show_selected_fully_connected_csv(){
     try{
         switch (stoi(choice)) {
             case 1:
-                displayMainMenu();
+                show_selection_menu(3);
                 break;
             case 2:
-                show_selected_fully_connected_graph();
+                displayMainMenu();
                 break;
             default:
                 cout<<"Invalid choice. Please try again."<<endl;
@@ -601,8 +722,8 @@ void Interface::show_selected_toy_graph() {
         cout << "|" << string(55, char(196)) << "|" << endl;
 
     }
-    cout << "|                                                       |\n";
-    cout << "|                      1. Main Menu                     |\n";
+    cout << "|                      1. Go Back                       |\n";
+    cout << "|                      2. Main Menu                     |\n";
     cout << char(192) << string(55, char(196)) << char(217) << endl;
     cout << "Enter your choice" << endl;
 
@@ -613,6 +734,9 @@ void Interface::show_selected_toy_graph() {
     try{
         switch (stoi(choice)) {
             case 1:
+                this->show_selection_menu(1);
+                break;
+            case 2:
                 displayMainMenu();
                 break;
             default:
@@ -658,8 +782,8 @@ void Interface::show_selected_real_world_graph() {
         cout << "|" << string(55, char(196)) << "|" << endl;
 
     }
-    cout << "|                                                       |\n";
-    cout << "|                      1. Main Menu                     |\n";
+    cout << "|                      1. Go Back                       |\n";
+    cout << "|                      2. Main Menu                     |\n";
     cout << char(192) << string(55, char(196)) << char(217) << endl;
     cout << "Enter your choice" << endl;
 
@@ -670,6 +794,9 @@ void Interface::show_selected_real_world_graph() {
     try{
         switch (stoi(choice)) {
             case 1:
+                this->show_selection_menu(2);
+                break;
+            case 2:
                 displayMainMenu();
                 break;
             default:
@@ -715,8 +842,8 @@ void Interface::show_selected_fully_connected_graph() {
         cout << "|" << string(55, char(196)) << "|" << endl;
 
     }
-    cout << "|                                                       |\n";
-    cout << "|                      1. Main Menu                     |\n";
+    cout << "|                      1. Go Back                       |\n";
+    cout << "|                      2. Main Menu                     |\n";
     cout << char(192) << string(55, char(196)) << char(217) << endl;
     cout << "Enter your choice" << endl;
 
@@ -727,6 +854,9 @@ void Interface::show_selected_fully_connected_graph() {
     try{
         switch (stoi(choice)) {
             case 1:
+                this->show_selection_menu(3);
+                break;
+            case 2:
                 displayMainMenu();
                 break;
             default:
