@@ -1,0 +1,136 @@
+\doxysection{Graph Class Reference}
+\hypertarget{class_graph}{}\label{class_graph}\index{Graph@{Graph}}
+
+
+A Class Dedicated to the Handling of Graphs.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a90961be426ad80001cbc103b6385df31}{Graph}} ()=default
+\begin{DoxyCompactList}\small\item\em A Default Empty Constructor for the \doxylink{class_graph}{Graph}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_aade642b6d70c46702243ab8fe8b4b0d6}{add\+\_\+node}} (\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}new\+\_\+node)
+\begin{DoxyCompactList}\small\item\em A Function used to add Nodes to the \doxylink{class_graph}{Graph}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a68acd76ae90e33981440a1e5550e26ad}{add\+\_\+edge}} (\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*}new\+\_\+edge)
+\begin{DoxyCompactList}\small\item\em A Function used to add Edges to the \doxylink{class_graph}{Graph}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph_ac0822132adb057bea4e22974222c6453}{find\+\_\+node}} (\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em A Function used to find Nodes in the \doxylink{class_graph}{Graph}. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_graph_ae3cbee7704c561ba6cf4ed53ca277200}{get\+\_\+nodes\+\_\+vector}} ()
+\begin{DoxyCompactList}\small\item\em A Function used to get the Nodes Vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a026d7836526dab4f8c4380d95bdb3e5c}{delete\+\_\+graph}} ()
+\begin{DoxyCompactList}\small\item\em A Function used to Delete the Current \doxylink{class_graph}{Graph}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph_ab7238bef627e44abb72825865363651e}{find\+\_\+edge}} (int i, int i1)
+\begin{DoxyCompactList}\small\item\em A Function used to Find an \doxylink{class_edge}{Edge} in the Current \doxylink{class_graph}{Graph}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a06fbea230ce8c311804be25a2297a09b}{triangular\+Approximation\+TSP}} (const vector$<$ \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} $>$ nodes)
+\begin{DoxyCompactList}\small\item\em A Function used to Find triangular Approximation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Class Dedicated to the Handling of Graphs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_graph_a90961be426ad80001cbc103b6385df31}\label{class_graph_a90961be426ad80001cbc103b6385df31} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+A Default Empty Constructor for the \doxylink{class_graph}{Graph}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graph_a68acd76ae90e33981440a1e5550e26ad}\label{class_graph_a68acd76ae90e33981440a1e5550e26ad} 
+\index{Graph@{Graph}!add\_edge@{add\_edge}}
+\index{add\_edge@{add\_edge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{add\_edge()}{add\_edge()}}
+{\footnotesize\ttfamily bool Graph\+::add\+\_\+edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+edge }\end{DoxyParamCaption})}
+
+
+
+A Function used to add Edges to the \doxylink{class_graph}{Graph}. 
+
+\begin{DoxyReturn}{Returns}
+Returns True if \doxylink{class_edge}{Edge} was Successfully added, False Otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_graph_aade642b6d70c46702243ab8fe8b4b0d6}\label{class_graph_aade642b6d70c46702243ab8fe8b4b0d6} 
+\index{Graph@{Graph}!add\_node@{add\_node}}
+\index{add\_node@{add\_node}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{add\_node()}{add\_node()}}
+{\footnotesize\ttfamily bool Graph\+::add\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+node }\end{DoxyParamCaption})}
+
+
+
+A Function used to add Nodes to the \doxylink{class_graph}{Graph}. 
+
+\begin{DoxyReturn}{Returns}
+Returns True if \doxylink{class_node}{Node} was Successfully added, False Otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a026d7836526dab4f8c4380d95bdb3e5c}\label{class_graph_a026d7836526dab4f8c4380d95bdb3e5c} 
+\index{Graph@{Graph}!delete\_graph@{delete\_graph}}
+\index{delete\_graph@{delete\_graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{delete\_graph()}{delete\_graph()}}
+{\footnotesize\ttfamily void Graph\+::delete\+\_\+graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A Function used to Delete the Current \doxylink{class_graph}{Graph}. 
+
+\Hypertarget{class_graph_ab7238bef627e44abb72825865363651e}\label{class_graph_ab7238bef627e44abb72825865363651e} 
+\index{Graph@{Graph}!find\_edge@{find\_edge}}
+\index{find\_edge@{find\_edge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{find\_edge()}{find\_edge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} Graph\+::find\+\_\+edge (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{i1 }\end{DoxyParamCaption})}
+
+
+
+A Function used to Find an \doxylink{class_edge}{Edge} in the Current \doxylink{class_graph}{Graph}. 
+
+\Hypertarget{class_graph_ac0822132adb057bea4e22974222c6453}\label{class_graph_ac0822132adb057bea4e22974222c6453} 
+\index{Graph@{Graph}!find\_node@{find\_node}}
+\index{find\_node@{find\_node}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{find\_node()}{find\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} Graph\+::find\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}}]{node }\end{DoxyParamCaption})}
+
+
+
+A Function used to find Nodes in the \doxylink{class_graph}{Graph}. 
+
+\begin{DoxyReturn}{Returns}
+Returns \doxylink{class_node}{Node} if \doxylink{class_node}{Node} was Successfully found, Nullptr Otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_graph_ae3cbee7704c561ba6cf4ed53ca277200}\label{class_graph_ae3cbee7704c561ba6cf4ed53ca277200} 
+\index{Graph@{Graph}!get\_nodes\_vector@{get\_nodes\_vector}}
+\index{get\_nodes\_vector@{get\_nodes\_vector}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{get\_nodes\_vector()}{get\_nodes\_vector()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} $>$ Graph\+::get\+\_\+nodes\+\_\+vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A Function used to get the Nodes Vector. 
+
+\begin{DoxyReturn}{Returns}
+Returns the Vector of the Nodes 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a06fbea230ce8c311804be25a2297a09b}\label{class_graph_a06fbea230ce8c311804be25a2297a09b} 
+\index{Graph@{Graph}!triangularApproximationTSP@{triangularApproximationTSP}}
+\index{triangularApproximationTSP@{triangularApproximationTSP}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{triangularApproximationTSP()}{triangularApproximationTSP()}}
+{\footnotesize\ttfamily double Graph\+::triangular\+Approximation\+TSP (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} $>$}]{nodes }\end{DoxyParamCaption})}
+
+
+
+A Function used to Find triangular Approximation. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mmaru/\+Desktop/uni/\+UNI\+\_\+2023-\/24/\+DA/feup-\/da-\/proj2/\+Code/include/\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

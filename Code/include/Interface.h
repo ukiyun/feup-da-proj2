@@ -10,10 +10,11 @@
 #include <unistd.h>
 #include <dos.h>
 #include <windows.h>
+#include <iomanip>
 
 // Header Files
 #include "FileHandler.h"
-
+#include "Utils.h"
 
 using namespace std;
 
@@ -39,6 +40,9 @@ public:
     /// @brief Function used to Choose which Fully Connected Graph CSV to Work With
     void choose_fully_connected_graph(int mode);
 
+    /// @brief Function used to Show a Menu to Ask the User what to do with the Chosen Graph
+    vector<int> show_selection_menu(int mode);
+
     // ============ Backtracking Functions ============== //
     /// @brief Program Option to show a menu the Menu Related to Backtracking Functions
     void backtracking_algorithm();
@@ -57,16 +61,22 @@ public:
 
     // ============ Testing ============== //
 
+    /// @brief Program Option to show the CSV of Toy Graph
     void show_selected_toy_csv();
 
+    /// @brief Program Option to show the CSV of Real World
     void show_selected_real_world_csv();
 
+    /// @brief Program Option to show the CSV of Fully Connected
     void show_selected_fully_connected_csv();
 
+    /// @brief Program Option to show the Toy Graph
     void show_selected_toy_graph();
 
+    /// @brief Program Option to show the Real World Graph
     void show_selected_real_world_graph();
 
+    /// @brief Program Option to show the Fully Connected Graph
     void show_selected_fully_connected_graph();
 
 private:

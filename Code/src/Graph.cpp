@@ -139,3 +139,47 @@ vector<Node *> Graph::get_nodes_vector() {
 void Graph::delete_graph() {
     this->nodes_vector_.clear();        // Removes all Items from the Nodes Vector, i.e., Deleting the Nodes in the Graph
 }
+
+Edge* Graph::find_edge(int i, int i1) {
+    for (auto nodes: this->nodes_vector_){
+        if(nodes->getNodeId()== i){
+            for(auto edges: nodes->get_adjacent_edges_vector()){
+                if(edges->getEdgeDestination()->getNodeId()==i1){
+                    return edges;
+                }
+            }
+        }
+        if(nodes->getNodeId()== i1){
+            for(auto edges: nodes->get_adjacent_edges_vector()){
+                if(edges->getEdgeDestination()->getNodeId()==i){
+                    return edges;
+                }
+            }
+        }
+    }
+
+    return nullptr;
+}
+
+double Graph::triangularApproximationTSP(const vector<Node *> nodes) {
+    int n = this->nodes_vector_.size();
+    double totalDistance = 0.0;
+    // Start with the first Node
+    Node* currentNode = nodes_vector_[0];
+    // Visit remaining nodes in the order of nearest neighbor
+    for (int i = 1; i < n; ++i) {
+        double minDistance = numeric_limits<double>::max();
+        int nearestNodeIndex = -1;
+        for (int j = 1; j < n; ++j) {
+            if (i != j) {
+                double dist = Node::haversine_formula(currentNode);
+                if (dist < minDistance) {
+                    minDistance = dist;
+                    nearestNodeIndex = j;
+                }}}
+        totalDistance += minDistance;
+        currentNode = this->nodes_vector_[nearestNodeIndex];
+    }// Return to the starting Node
+    totalDistance += Node::haversine_formula(currentNode);
+    return totalDistance;
+}

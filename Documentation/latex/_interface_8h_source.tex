@@ -1,0 +1,74 @@
+\doxysection{Interface.\+h}
+\hypertarget{_interface_8h_source}{}\label{_interface_8h_source}\index{C:/Users/mmaru/Desktop/uni/UNI\_2023-\/24/DA/feup-\/da-\/proj2/Code/include/Interface.h@{C:/Users/mmaru/Desktop/uni/UNI\_2023-\/24/DA/feup-\/da-\/proj2/Code/include/Interface.h}}
+\mbox{\hyperlink{_interface_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INTERFACE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INTERFACE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ C++\ libraries}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <dos.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Header\ Files}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_file_handler_8h}{FileHandler.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_utils_8h}{Utils.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_interface}{Interface}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a896ee0929c54c90780b0b0b4a7a6fba6}{open}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_interface_a61db7042296e66f041e5312d519f8705}{displayMainMenu}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_interface_ae8eddba6e0acda2d3963a781079dc2d7}{choose\_graph\_type}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a4926135a002fc0d04d87c5493dc10168}{choose\_toy\_graph}}(\textcolor{keywordtype}{int}\ mode);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a7280bd49ed18e3933e9762423a643217}{choose\_real\_world\_graph}}(\textcolor{keywordtype}{int}\ mode);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a57c8d2adfb8740403a46d35c509afdc5}{choose\_fully\_connected\_graph}}(\textcolor{keywordtype}{int}\ mode);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \ \ vector<int>\ \mbox{\hyperlink{class_interface_a47f8bc6ff29f3d7757b18d5b6bebd1b0}{show\_selection\_menu}}(\textcolor{keywordtype}{int}\ mode);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ ============\ Backtracking\ Functions\ ==============\ //}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_af68660de6363b7861ae226db96791e26}{backtracking\_algorithm}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ ============\ Triangular\ Approximation\ Functions\ ==============\ //}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_abb6c8ba27fcfca425d8d3aea2ce2f3c7}{triangular\_approximation}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ ============\ Other\ Heuristics\ ==============\ //}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a3a731911aae531b2e9b4ae39959b7143}{other\_heuristics}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ ============\ TSP\ in\ Real\ World\ Functions\ ==============\ //}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a3e500280bf7b73484e471295b396c497}{tsp\_in\_real\_world}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ ============\ Testing\ ==============\ //}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_ae475cfa9ce5f868329a1b688d0c8db5b}{show\_selected\_toy\_csv}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a90537a6ff89b336ec1479df4bcacda70}{show\_selected\_real\_world\_csv}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a2aa606ba5b7b1d172ae7d8ea46d6b6cc}{show\_selected\_fully\_connected\_csv}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_ab9f9cc7ad3dcd4f5210fe55d24391235}{show\_selected\_toy\_graph}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a0eb5b9f29ae88626e2c049a6897ed975}{show\_selected\_real\_world\_graph}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_interface_a49b5cf24929b455d90e7e8ecf0e33f45}{show\_selected\_fully\_connected\_graph}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{class_file_handler}{FileHandler}}\ fhs\_;}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//INTERFACE\_H}}
+
+\end{DoxyCode}

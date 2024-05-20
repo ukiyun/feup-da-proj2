@@ -1,0 +1,71 @@
+\doxysection{File\+Handler.\+h}
+\hypertarget{_file_handler_8h_source}{}\label{_file_handler_8h_source}\index{C:/Users/mmaru/Desktop/uni/UNI\_2023-\/24/DA/feup-\/da-\/proj2/Code/include/FileHandler.h@{C:/Users/mmaru/Desktop/uni/UNI\_2023-\/24/DA/feup-\/da-\/proj2/Code/include/FileHandler.h}}
+\mbox{\hyperlink{_file_handler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FILEHANDLER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FILEHANDLER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ C++\ Libraries}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ Header\ Files}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_toy_graph_8h}{ToyGraph.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graph_8h}{Graph.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_file_handler}{FileHandler}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ ============\ Toy\ Graph\ Functions\ ==============\ //}}
+\DoxyCodeLine{00025\ \ \ \ \ vector<ToyGraph>\ \mbox{\hyperlink{class_file_handler_aa1fa1693e60dbfb2e5635cdb72aa8b59}{get\_toy\_graph\_vector}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph}}\ \mbox{\hyperlink{class_file_handler_a09124aa0457524d714b68fadef6403e1}{get\_toy\_graph}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_handler_a636e78f2d6beea58fdfc7bbc371f13fb}{read\_ToyGraph\_csv}}(\textcolor{keywordtype}{string}\ fileName);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_handler_abdd2dfa23ddd376cc711303556e11472}{parse\_ToyGraph\_csv}}(\textcolor{keywordtype}{string}\ currentLine);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ ============\ Real\ World\ Graph\ Functions\ ==============\ //}}
+\DoxyCodeLine{00033\ \ \ \ \ vector<Node>\ \mbox{\hyperlink{class_file_handler_a1de469d8d3c6a7d6a140513f66a3da57}{get\_real\_world\_graph\_vector}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph}}\ \mbox{\hyperlink{class_file_handler_a8c945af6736745084e80ff9928b55f53}{get\_real\_world\_graph}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_handler_a6df27ca088e90b4fb2341675f63aa941}{read\_RealWorld\_csv}}(\textcolor{keywordtype}{string}\ NodeFilePath,\ \textcolor{keywordtype}{string}\ EdgeFilePath);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_handler_aadd4b27e296c6555c3f4c960c8ea87fd}{parse\_RealWorld\_Nodes\_csv}}(\textcolor{keywordtype}{string}\ currentLine);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_handler_a916378a1506aad48b4164d9e2d54e278}{parse\_RealWorld\_Edges\_csv}}(\textcolor{keywordtype}{string}\ currentLine);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ ============\ Extra\ Fully\ Connected\ Graph\ Functions\ ==============\ //}}
+\DoxyCodeLine{00042\ \ \ \ \ vector<ToyGraph>\ \mbox{\hyperlink{class_file_handler_aaf8680ccb154c2969c8173ed60118d91}{get\_fully\_connected\_graph\_vector}}();}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph}}\ \mbox{\hyperlink{class_file_handler_a615148066d84912773dfce7dd297b8f8}{get\_fully\_connected\_graph}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_handler_a007696a393db7c6e7dc95e744feafd00}{read\_FullyConnected\_csv}}(\textcolor{keywordtype}{string}\ filePath);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_handler_a8d9487554752793086051b6ae7521be0}{parse\_FullyConnected\_csv}}(\textcolor{keywordtype}{string}\ currentLine);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ ============\ Adding\ Nodes\ to\ Graph\ =========================\ //}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_handler_a7f17427404b6be608f485dc6c0454d6a}{add\_nodes\_to\_graph}}(\mbox{\hyperlink{class_graph}{Graph}}\ *\ graph);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00054\ \ \ \ \ vector<ToyGraph>\ toy\_graph\_nodes\_;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ \ \ vector<Node>\ real\_world\_nodes\_;\ \textcolor{comment}{//\ still\ dont\ know\ datatype\ inside\ vector}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \ \ vector<ToyGraph>\ fully\_connected\_nodes\_;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph}}\ toy\_graph\_;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph}}\ real\_world\_graph\_;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph}}\ fully\_connected\_graph\_;}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//FILEHANDLER\_H}}
+
+\end{DoxyCode}

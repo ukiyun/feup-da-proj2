@@ -1,0 +1,137 @@
+\doxysection{File\+Handler Class Reference}
+\hypertarget{class_file_handler}{}\label{class_file_handler}\index{FileHandler@{FileHandler}}
+
+
+A Class Dedicated to the Handling of the Files and Functions related to those.  
+
+
+
+
+{\ttfamily \#include $<$File\+Handler.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{class_toy_graph}{Toy\+Graph}} $>$ \mbox{\hyperlink{class_file_handler_aa1fa1693e60dbfb2e5635cdb72aa8b59}{get\+\_\+toy\+\_\+graph\+\_\+vector}} ()
+\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_file_handler_a09124aa0457524d714b68fadef6403e1}{get\+\_\+toy\+\_\+graph}} ()
+\item 
+void \mbox{\hyperlink{class_file_handler_a636e78f2d6beea58fdfc7bbc371f13fb}{read\+\_\+\+Toy\+Graph\+\_\+csv}} (string file\+Name)
+\item 
+void \mbox{\hyperlink{class_file_handler_abdd2dfa23ddd376cc711303556e11472}{parse\+\_\+\+Toy\+Graph\+\_\+csv}} (string current\+Line)
+\item 
+vector$<$ \mbox{\hyperlink{class_node}{Node}} $>$ \mbox{\hyperlink{class_file_handler_a1de469d8d3c6a7d6a140513f66a3da57}{get\+\_\+real\+\_\+world\+\_\+graph\+\_\+vector}} ()
+\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_file_handler_a8c945af6736745084e80ff9928b55f53}{get\+\_\+real\+\_\+world\+\_\+graph}} ()
+\item 
+void \mbox{\hyperlink{class_file_handler_a6df27ca088e90b4fb2341675f63aa941}{read\+\_\+\+Real\+World\+\_\+csv}} (string Node\+File\+Path, string Edge\+File\+Path)
+\item 
+void \mbox{\hyperlink{class_file_handler_aadd4b27e296c6555c3f4c960c8ea87fd}{parse\+\_\+\+Real\+World\+\_\+\+Nodes\+\_\+csv}} (string current\+Line)
+\item 
+void \mbox{\hyperlink{class_file_handler_a916378a1506aad48b4164d9e2d54e278}{parse\+\_\+\+Real\+World\+\_\+\+Edges\+\_\+csv}} (string current\+Line)
+\item 
+vector$<$ \mbox{\hyperlink{class_toy_graph}{Toy\+Graph}} $>$ \mbox{\hyperlink{class_file_handler_aaf8680ccb154c2969c8173ed60118d91}{get\+\_\+fully\+\_\+connected\+\_\+graph\+\_\+vector}} ()
+\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_file_handler_a615148066d84912773dfce7dd297b8f8}{get\+\_\+fully\+\_\+connected\+\_\+graph}} ()
+\item 
+void \mbox{\hyperlink{class_file_handler_a007696a393db7c6e7dc95e744feafd00}{read\+\_\+\+Fully\+Connected\+\_\+csv}} (string file\+Path)
+\item 
+void \mbox{\hyperlink{class_file_handler_a8d9487554752793086051b6ae7521be0}{parse\+\_\+\+Fully\+Connected\+\_\+csv}} (string current\+Line)
+\item 
+void \mbox{\hyperlink{class_file_handler_a7f17427404b6be608f485dc6c0454d6a}{add\+\_\+nodes\+\_\+to\+\_\+graph}} (\mbox{\hyperlink{class_graph}{Graph}} \texorpdfstring{$\ast$}{*}graph)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Class Dedicated to the Handling of the Files and Functions related to those. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_file_handler_a7f17427404b6be608f485dc6c0454d6a}\label{class_file_handler_a7f17427404b6be608f485dc6c0454d6a} 
+\index{FileHandler@{FileHandler}!add\_nodes\_to\_graph@{add\_nodes\_to\_graph}}
+\index{add\_nodes\_to\_graph@{add\_nodes\_to\_graph}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{add\_nodes\_to\_graph()}{add\_nodes\_to\_graph()}}
+{\footnotesize\ttfamily void File\+Handler\+::add\+\_\+nodes\+\_\+to\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a615148066d84912773dfce7dd297b8f8}\label{class_file_handler_a615148066d84912773dfce7dd297b8f8} 
+\index{FileHandler@{FileHandler}!get\_fully\_connected\_graph@{get\_fully\_connected\_graph}}
+\index{get\_fully\_connected\_graph@{get\_fully\_connected\_graph}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{get\_fully\_connected\_graph()}{get\_fully\_connected\_graph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} File\+Handler\+::get\+\_\+fully\+\_\+connected\+\_\+graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_aaf8680ccb154c2969c8173ed60118d91}\label{class_file_handler_aaf8680ccb154c2969c8173ed60118d91} 
+\index{FileHandler@{FileHandler}!get\_fully\_connected\_graph\_vector@{get\_fully\_connected\_graph\_vector}}
+\index{get\_fully\_connected\_graph\_vector@{get\_fully\_connected\_graph\_vector}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{get\_fully\_connected\_graph\_vector()}{get\_fully\_connected\_graph\_vector()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_toy_graph}{Toy\+Graph}} $>$ File\+Handler\+::get\+\_\+fully\+\_\+connected\+\_\+graph\+\_\+vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a8c945af6736745084e80ff9928b55f53}\label{class_file_handler_a8c945af6736745084e80ff9928b55f53} 
+\index{FileHandler@{FileHandler}!get\_real\_world\_graph@{get\_real\_world\_graph}}
+\index{get\_real\_world\_graph@{get\_real\_world\_graph}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{get\_real\_world\_graph()}{get\_real\_world\_graph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} File\+Handler\+::get\+\_\+real\+\_\+world\+\_\+graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a1de469d8d3c6a7d6a140513f66a3da57}\label{class_file_handler_a1de469d8d3c6a7d6a140513f66a3da57} 
+\index{FileHandler@{FileHandler}!get\_real\_world\_graph\_vector@{get\_real\_world\_graph\_vector}}
+\index{get\_real\_world\_graph\_vector@{get\_real\_world\_graph\_vector}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{get\_real\_world\_graph\_vector()}{get\_real\_world\_graph\_vector()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_node}{Node}} $>$ File\+Handler\+::get\+\_\+real\+\_\+world\+\_\+graph\+\_\+vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a09124aa0457524d714b68fadef6403e1}\label{class_file_handler_a09124aa0457524d714b68fadef6403e1} 
+\index{FileHandler@{FileHandler}!get\_toy\_graph@{get\_toy\_graph}}
+\index{get\_toy\_graph@{get\_toy\_graph}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{get\_toy\_graph()}{get\_toy\_graph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} File\+Handler\+::get\+\_\+toy\+\_\+graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_aa1fa1693e60dbfb2e5635cdb72aa8b59}\label{class_file_handler_aa1fa1693e60dbfb2e5635cdb72aa8b59} 
+\index{FileHandler@{FileHandler}!get\_toy\_graph\_vector@{get\_toy\_graph\_vector}}
+\index{get\_toy\_graph\_vector@{get\_toy\_graph\_vector}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{get\_toy\_graph\_vector()}{get\_toy\_graph\_vector()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_toy_graph}{Toy\+Graph}} $>$ File\+Handler\+::get\+\_\+toy\+\_\+graph\+\_\+vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a8d9487554752793086051b6ae7521be0}\label{class_file_handler_a8d9487554752793086051b6ae7521be0} 
+\index{FileHandler@{FileHandler}!parse\_FullyConnected\_csv@{parse\_FullyConnected\_csv}}
+\index{parse\_FullyConnected\_csv@{parse\_FullyConnected\_csv}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{parse\_FullyConnected\_csv()}{parse\_FullyConnected\_csv()}}
+{\footnotesize\ttfamily void File\+Handler\+::parse\+\_\+\+Fully\+Connected\+\_\+csv (\begin{DoxyParamCaption}\item[{string}]{current\+Line }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a916378a1506aad48b4164d9e2d54e278}\label{class_file_handler_a916378a1506aad48b4164d9e2d54e278} 
+\index{FileHandler@{FileHandler}!parse\_RealWorld\_Edges\_csv@{parse\_RealWorld\_Edges\_csv}}
+\index{parse\_RealWorld\_Edges\_csv@{parse\_RealWorld\_Edges\_csv}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{parse\_RealWorld\_Edges\_csv()}{parse\_RealWorld\_Edges\_csv()}}
+{\footnotesize\ttfamily void File\+Handler\+::parse\+\_\+\+Real\+World\+\_\+\+Edges\+\_\+csv (\begin{DoxyParamCaption}\item[{string}]{current\+Line }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_aadd4b27e296c6555c3f4c960c8ea87fd}\label{class_file_handler_aadd4b27e296c6555c3f4c960c8ea87fd} 
+\index{FileHandler@{FileHandler}!parse\_RealWorld\_Nodes\_csv@{parse\_RealWorld\_Nodes\_csv}}
+\index{parse\_RealWorld\_Nodes\_csv@{parse\_RealWorld\_Nodes\_csv}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{parse\_RealWorld\_Nodes\_csv()}{parse\_RealWorld\_Nodes\_csv()}}
+{\footnotesize\ttfamily void File\+Handler\+::parse\+\_\+\+Real\+World\+\_\+\+Nodes\+\_\+csv (\begin{DoxyParamCaption}\item[{string}]{current\+Line }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_abdd2dfa23ddd376cc711303556e11472}\label{class_file_handler_abdd2dfa23ddd376cc711303556e11472} 
+\index{FileHandler@{FileHandler}!parse\_ToyGraph\_csv@{parse\_ToyGraph\_csv}}
+\index{parse\_ToyGraph\_csv@{parse\_ToyGraph\_csv}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{parse\_ToyGraph\_csv()}{parse\_ToyGraph\_csv()}}
+{\footnotesize\ttfamily void File\+Handler\+::parse\+\_\+\+Toy\+Graph\+\_\+csv (\begin{DoxyParamCaption}\item[{string}]{current\+Line }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a007696a393db7c6e7dc95e744feafd00}\label{class_file_handler_a007696a393db7c6e7dc95e744feafd00} 
+\index{FileHandler@{FileHandler}!read\_FullyConnected\_csv@{read\_FullyConnected\_csv}}
+\index{read\_FullyConnected\_csv@{read\_FullyConnected\_csv}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{read\_FullyConnected\_csv()}{read\_FullyConnected\_csv()}}
+{\footnotesize\ttfamily void File\+Handler\+::read\+\_\+\+Fully\+Connected\+\_\+csv (\begin{DoxyParamCaption}\item[{string}]{file\+Path }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a6df27ca088e90b4fb2341675f63aa941}\label{class_file_handler_a6df27ca088e90b4fb2341675f63aa941} 
+\index{FileHandler@{FileHandler}!read\_RealWorld\_csv@{read\_RealWorld\_csv}}
+\index{read\_RealWorld\_csv@{read\_RealWorld\_csv}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{read\_RealWorld\_csv()}{read\_RealWorld\_csv()}}
+{\footnotesize\ttfamily void File\+Handler\+::read\+\_\+\+Real\+World\+\_\+csv (\begin{DoxyParamCaption}\item[{string}]{Node\+File\+Path,  }\item[{string}]{Edge\+File\+Path }\end{DoxyParamCaption})}
+
+\Hypertarget{class_file_handler_a636e78f2d6beea58fdfc7bbc371f13fb}\label{class_file_handler_a636e78f2d6beea58fdfc7bbc371f13fb} 
+\index{FileHandler@{FileHandler}!read\_ToyGraph\_csv@{read\_ToyGraph\_csv}}
+\index{read\_ToyGraph\_csv@{read\_ToyGraph\_csv}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{read\_ToyGraph\_csv()}{read\_ToyGraph\_csv()}}
+{\footnotesize\ttfamily void File\+Handler\+::read\+\_\+\+Toy\+Graph\+\_\+csv (\begin{DoxyParamCaption}\item[{string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mmaru/\+Desktop/uni/\+UNI\+\_\+2023-\/24/\+DA/feup-\/da-\/proj2/\+Code/include/\mbox{\hyperlink{_file_handler_8h}{File\+Handler.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,44 @@
+\doxysection{Utils.\+h}
+\hypertarget{_utils_8h_source}{}\label{_utils_8h_source}\index{C:/Users/mmaru/Desktop/uni/UNI\_2023-\/24/DA/feup-\/da-\/proj2/Code/include/Utils.h@{C:/Users/mmaru/Desktop/uni/UNI\_2023-\/24/DA/feup-\/da-\/proj2/Code/include/Utils.h}}
+\mbox{\hyperlink{_utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UTILS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UTILS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ C++\ libraries}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Header\ Files}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graph_8h}{Graph.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_file_handler_8h}{FileHandler.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_utils}{Utils}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_utils_afc1e8c2c6dc51b2a22d79e8dfc132819}{backtracking}}(\mbox{\hyperlink{class_graph}{Graph}}\&\ graph);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_utils_ac0363d10221387a3befac0186b716c74}{nearest\_neighbor}}(\mbox{\hyperlink{class_graph}{Graph}}\ \&graph);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ declarations\ here\ when\ you\ implement\ the\ functions}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ vector<vector<float>>\ \mbox{\hyperlink{class_utils_a2df07a961ca535f88dd368255322c337}{AdjacencyMatrix}}\ (\mbox{\hyperlink{class_graph}{Graph}}\ \&graph);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_utils_ac0d11c1f35fc5e994a7d385ef14f6bea}{tsp\_real\_world}}(\mbox{\hyperlink{class_graph}{Graph}}\ \&graph);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Placeholder\ for\ future\ implementation}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ backtrackingHelper(\mbox{\hyperlink{class_graph}{Graph}}\ \&graph,\ vector<bool>\ \&visited,\ \textcolor{keywordtype}{int}\ currentVertex,\ \textcolor{keywordtype}{int}\ startVertex,\ \textcolor{keywordtype}{float}\ pathLength,\ \textcolor{keywordtype}{float}\ \&minPathLength);}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//UTILS\_H}}
+
+\end{DoxyCode}
