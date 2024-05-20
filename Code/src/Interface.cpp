@@ -379,7 +379,7 @@ vector<int> Interface::show_selection_menu(int mode) {
                 }
                 break;
             case 3:
-                return {3,mode};
+                return{3,mode};
             case 4:
                 return {4, mode};
             case 5:
@@ -436,6 +436,9 @@ void Interface::backtracking_algorithm() {
         case 1:
             this->choose_toy_graph(mode);
             this->show_selection_menu(mode);
+
+
+
             //missing functions;
             break;
         case 2:
